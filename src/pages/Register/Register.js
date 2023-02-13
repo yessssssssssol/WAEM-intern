@@ -8,6 +8,7 @@ const Register = () => {
           <div className='w-full xl:w-3/4 lg:w-11/12 flex'>
             <img
               src={dog}
+              alt='registerIMG'
               className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg'
             />
             <div className='w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none'>
@@ -46,7 +47,7 @@ const Register = () => {
                 <div className='mb-4'>
                   <label
                     className='block mb-2 text-sm font-bold text-gray-700'
-                    for='email'
+                    for='Email'
                   >
                     Email
                   </label>
@@ -102,7 +103,7 @@ const Register = () => {
                 <div className='text-center'>
                   <a
                     className='inline-block text-sm text-gray-500 align-baseline hover:text-gray-800'
-                    href='./index.html'
+                    href='/login'
                   >
                     Already have an account? Login!
                   </a>
