@@ -1,7 +1,12 @@
 import React from 'react';
+import ProductMainCard from '../../components/ProductMainCard/ProductMainCard';
 
 const Main = () => {
-  return <div className='text-3xl font-bold underline'>Main</div>;
+  return (
+    <div className='w-full'>
+      <ProductMainCard />
+    </div>
+  );
 };
 
 export default Main;
