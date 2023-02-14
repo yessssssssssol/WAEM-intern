@@ -2,7 +2,7 @@ import React from 'react';
 import rabbit from '../../assets/images/rabbit.jpeg';
 const UserInfoCard = () => {
   return (
-    <div className=' h-full'>
+    <div className=' h-full font-mono'>
       <div className='relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-10'>
         <div className='px-6'>
           <div className='flex flex-wrap justify-center'>
@@ -58,7 +58,7 @@ const UserInfoCard = () => {
                 </p>
                 <a
                   href='/'
-                  className='font-normal text-slate-700 hover:text-slate-400 hover:font-bold'
+                  className='font-semibold text-[#333333]  hover:text-slate-400 hover:font-bold'
                 >
                   채팅하기
                 </a>
