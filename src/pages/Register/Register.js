@@ -1,13 +1,13 @@
 import React from 'react';
-import dog from '../../assets/images/dog.jpeg';
+import register from '../../assets/images/register.jpeg';
 const Register = () => {
   return (
     <div className='font-mono'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto '>
         <div className='flex justify-center px-6 my-12'>
           <div className='w-full xl:w-3/4 lg:w-11/12 flex'>
             <img
-              src={dog}
+              src={register}
               alt='registerIMG'
               className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg'
             />

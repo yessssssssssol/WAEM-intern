@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import white from '../../assets/images/white.png';
+import neighborhood from '../../assets/images/neighborhood.png';
 import rabbit from '../../assets/images/rabbit.jpeg';
 const Nav = () => {
   const user = {
@@ -25,9 +25,9 @@ const Nav = () => {
     return classes.filter(Boolean).join(' ');
   }
   return (
-    <div className='h-full'>
+    <div className='h-full font-mono'>
       <div className='min-h-full'>
-        <Disclosure as='nav' className='bg-white'>
+        <Disclosure as='nav' className='bg-[#111111]'>
           {({ open }) => (
             <>
               <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
@@ -36,7 +36,7 @@ const Nav = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='h-16 w-26 p-2'
-                        src={white}
+                        src={neighborhood}
                         alt='Your Company'
                       />
                     </div>
@@ -48,8 +48,8 @@ const Nav = () => {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? 'text-gray-900'
-                                : 'hover:text-gray-700 hover:font-extrabold',
+                                ? 'text-white'
+                                : 'text-white hover:text-gray-200 hover:font-extrabold',
                               'px-3 py-2 rounded-md text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}
@@ -106,7 +106,7 @@ const Nav = () => {
                   </div>
                   <div className='-mr-2 flex md:hidden'>
                     {/* Mobile menu button */}
-                    <Disclosure.Button className='inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+                    <Disclosure.Button className='inline-flex items-center justify-center rounded-md bg-[#111111] p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
                       <span className='sr-only'>Open main menu</span>
                       {open ? (
                         <XMarkIcon
