@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1",
+    "name": "강남구",
+    "region_id": "1"
+  },
+  {
+    "id": "2",
+    "name": "강동구",
+    "region_id": "1"
+  },
+  {
+    "id": "3",
+    "name": "강북구",
+    "region_id": "1"
+  },
+  {
+    "id": "4",
+    "name": "강서구",
+    "region_id": "1"
+  },
+  {
+    "id": "5",
+    "name": "관악구",
+    "region_id": "1"
+  },
+  {
+    "id": "6",
+    "name": "광진구",
+    "region_id": "1"
+  },
+  {
+    "id": "7",
+    "name": "구로구",
+    "region_id": "1"
+  },
+  {
+    "id": "8",
+    "name": "금천구",
+    "region_id": "1"
+  },
+  {
+    "id": "9",
+    "name": "노원구",
+    "region_id": "1"
+  },
+  {
+    "id": "10",
+    "name": "도봉구",
+    "region_id": "1"
+  },
+  {
+    "id": "11",
+    "name": "동대문구",
+    "region_id": "1"
+  },
+  {
+    "id": "12",
+    "name": "동작구",
+    "region_id": "1"
+  },
+  {
+    "id": "13",
+    "name": "마포구",
+    "region_id": "1"
+  },
+  {
+    "id": "14",
+    "name": "서대문구",
+    "region_id": "1"
+  },
+  {
+    "id": "15",
+    "name": "서초구",
+    "region_id": "1"
+  },
+  {
+    "id": "16",
+    "name": "성동구",
+    "region_id": "1"
+  },
+  {
+    "id": "17",
+    "name": "성북구",
+    "region_id": "1"
+  },
+  {
+    "id": "18",
+    "name": "송파구",
+    "region_id": "1"
+  },
+  {
+    "id": "19",
+    "name": "양천구",
+    "region_id": "1"
+  },
+  {
+    "id": "20",
+    "name": "영등포구",
+    "region_id": "1"
+  },
+  {
+    "id": "21",
+    "name": "용산구",
+    "region_id": "1"
+  },
+  {
+    "id": "22",
+    "name": "은평구",
+    "region_id": "1"
+  },
+  {
+    "id": "23",
+    "name": "종로구",
+    "region_id": "1"
+  },
+  {
+    "id": "24",
+    "name": "중구",
+    "region_id": "1"
+  },
+  {
+    "id": "25",
+    "name": "중랑구",
+    "region_id": "1"
+  }
+]

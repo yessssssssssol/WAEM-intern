@@ -11,8 +11,8 @@ const Nav = () => {
   };
   const navigation = [
     { name: 'main', href: '/', current: false },
-    { name: 'register', href: '/register', current: false },
-    { name: 'login', href: '/login', current: false },
+    { name: 'SignUp', href: '/SignUp', current: false },
+    { name: 'SignIn', href: '/SignIn', current: false },
     { name: 'userdetail', href: '/userdetail', current: false },
   ];
   const userNavigation = [

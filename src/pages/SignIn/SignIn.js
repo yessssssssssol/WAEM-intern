@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = () => {
+const SignIn = () => {
   return (
     <div className='font-mono overflow-hidden flex my-24 justify-center'>
       <div className='bg-white lg:w-5/12 md:6/12 w-10/12 shadow-3xl'>
@@ -48,4 +48,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;

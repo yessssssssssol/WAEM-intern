@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import register from '../../assets/images/register.jpeg';
-const Register = () => {
-  // const [city, setCity] = useState([]);
-  const [location, setLocation] = useState([]);
-  const [centre, setCentre] = useState([]);
+const SignUp = () => {
+  const [city, setCity] = useState('');
+  const [centre, setCentre] = useState('');
+  const [cityList, setCityList] = useState([]);
+  const [centreList, setCentreList] = useState([]);
 
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
+  useEffect(() => {
+    fetch('./data/city.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setCityList(data);
+      });
+  }, [city, centre]);
+  useEffect(() => {
+    fetch('./data/centre.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setCentreList(data.filter((item) => city === item.city_id));
+      });
+  }, [city, centre]);
+
+  const handleCityChange = (e) => {
+    setCity(e.target.value);
   };
 
   const handleCentreChange = (e) => {
@@ -49,10 +65,7 @@ const Register = () => {
               <form className='px-8 pt-6 pb-8 mb-4 bg-white rounded'>
                 <div className='mb-4 md:flex md:justify-between'>
                   <div className='mb-4 md:mr-2 md:mb-0'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='Name'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       Name
                     </label>
                     <input
@@ -93,53 +106,49 @@ const Register = () => {
                 </div>
                 <div className='mb-4 md:flex md:justify-between'>
                   <div className='mb-4 md:mr-2 md:mb-0'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='location'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       지역
                     </label>
                     <select className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'>
-                      <option value='city'>서울특별시</option>
+                      <option value='region'>서울특별시</option>
                     </select>
                   </div>
                   <div className='md:ml-2'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='location'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       구
                     </label>
                     <select
-                      value={location}
-                      onChange={handleLocationChange}
+                      value={city}
+                      onChange={handleCityChange}
                       className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     >
-                      <option value={location}>{location}</option>
+                      {cityList.map((city) => (
+                        <option key={city.id} value={city.id}>
+                          {city.name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className='md:ml-2'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='centre'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       동
                     </label>
                     <select
-                      value={centre}
+                      value={centre.id}
                       onChange={handleCentreChange}
                       className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     >
-                      <option value={centre}>{centre}</option>
+                      {centreList.map((centre) => (
+                        <option key={centre.id} value={centre.id}>
+                          {centre.name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
                 <div className='mb-4 md:flex md:justify-between'>
                   <div className='mb-4 md:mr-2 md:mb-0'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='password'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       Password
                     </label>
                     <input
@@ -150,10 +159,7 @@ const Register = () => {
                     />
                   </div>
                   <div className='md:ml-2'>
-                    <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
-                      for='c_password'
-                    >
+                    <label className='block mb-2 text-sm font-bold text-gray-700'>
                       Confirm Password
                     </label>
                     <input
@@ -190,4 +196,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;
