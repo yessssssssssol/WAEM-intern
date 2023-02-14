@@ -7,17 +7,21 @@ const SignUp = () => {
   const [centreList, setCentreList] = useState([]);
 
   useEffect(() => {
-    fetch('./data/city.json')
+    fetch('http://172.20.10.4:3000/user/signup')
       .then((res) => res.json())
       .then((data) => {
-        setCityList(data);
+        setCityList(data.city);
       });
   }, [city, centre]);
   useEffect(() => {
-    fetch('./data/centre.json')
+    fetch('http://172.20.10.4:3000/user/signup')
       .then((res) => res.json())
       .then((data) => {
-        setCentreList(data.filter((item) => city === item.city_id));
+        // setCentreList(data.address.filter((item) => city === item.city_id));
+        setCentreList(data.address.filter((item) => city == item.city_id));
+
+        console.log(data.address);
+        console.log(centreList);
       });
   }, [city, centre]);
 
@@ -97,6 +101,7 @@ const SignUp = () => {
                   >
                     Email
                   </label>
+                  <button className='block'>✔︎</button>
                   <input
                     className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     id='email'
