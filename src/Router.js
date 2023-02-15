@@ -7,6 +7,8 @@ import Nav from './components/Nav/Nav';
 import SignUp from './pages/SignUp/SignUp';
 import UserDetail from './pages/UserDetail/UserDetail';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import EditProductDetail from './pages/EditProductDetail/EditProductDetail';
+import CreateProductDetail from './pages/CreateProductDetail/CreateProductDetail';
 
 const Router = () => {
   return (
@@ -14,10 +16,12 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='signIn' element={<SignIn />} />
-        <Route path='signUp' element={<SignUp />} />
-        <Route path='userdetail' element={<UserDetail />} />
-        <Route path='productdetail' element={<ProductDetail />} />
+        <Route path='/signIn' element={<SignIn />} />
+        <Route path='/signUp' element={<SignUp />} />
+        <Route path='/userdetail' element={<UserDetail />} />
+        <Route path='/productdetail/:id' element={<ProductDetail />} />
+        <Route path='/editProduct' element={<EditProductDetail />} />
+        <Route path='/createProduct' element={<CreateProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

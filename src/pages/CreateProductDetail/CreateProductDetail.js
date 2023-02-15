@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditProductDetail = () => {
+const CreateProductDetail = () => {
   return (
     <div className='w-full my-24 container mx-auto'>
       <div className='w-full justify-center px-6 my-12'>
@@ -8,10 +8,10 @@ const EditProductDetail = () => {
           <form action='#' method='POST'>
             <div className='shadow sm:overflow-hidden sm:rounded-md'>
               <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
-                <div className='grid grid-cols-3 gap-6'>
+                <div className='w-full'>
                   <div className='col-span-3 sm:col-span-2'>
                     <label
-                      htmlFor='company-website'
+                      htmlFor='title'
                       className='block text-sm font-medium text-gray-700'
                     >
                       Title
@@ -20,6 +20,40 @@ const EditProductDetail = () => {
                       <input
                         type='text'
                         name='title'
+                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
+                        placeholder='Title'
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className='grid grid-cols-3 gap-4'>
+                  <div className='col-span-2'>
+                    <label
+                      htmlFor='company-website'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      Price
+                    </label>
+                    <div className='mt-1 flex rounded-md shadow-sm'>
+                      <input
+                        type='text'
+                        name='price'
+                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
+                        placeholder='Price'
+                      />
+                    </div>
+                  </div>
+                  <div className='col-span-1'>
+                    <label
+                      htmlFor='company-website'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      Category
+                    </label>
+                    <div className='mt-1 flex rounded-md shadow-sm'>
+                      <select
+                        type='text'
+                        name='Category'
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Title'
                       />
@@ -68,7 +102,7 @@ const EditProductDetail = () => {
                       <div className='flex text-sm text-gray-600'>
                         <label
                           htmlFor='file-upload'
-                          className='relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500'
+                          className='relative cursor-pointer rounded-md bg-white font-medium text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2 hover:text-green-800'
                         >
                           <span>Upload a file</span>
                           <input
@@ -90,7 +124,7 @@ const EditProductDetail = () => {
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
                 <button
                   type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                 >
                   Save
                 </button>
@@ -103,4 +137,4 @@ const EditProductDetail = () => {
   );
 };
 
-export default EditProductDetail;
+export default CreateProductDetail;
