@@ -3,15 +3,13 @@ import React, { useState, useEffect } from 'react';
 import ProductDetailInfo from './ProductDetailInfo';
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState('');
+  const [product, setProduct] = useState([]);
   // const { productId } = useParams();
 
   useEffect(() => {
-    fetch(
-      `https://my-json-server.typicode.com/legobitna/hnm-react-router/products/1`
-    )
-      .then((result) => result.json())
-      .then((res) => setProduct(res));
+    fetch('./data/product.json')
+      .then((res) => res.json())
+      .then((res) => setProduct(res[0]));
   }, []);
 
   return (

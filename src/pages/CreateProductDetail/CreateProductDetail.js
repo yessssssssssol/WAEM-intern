@@ -9,7 +9,7 @@ const CreateProductDetail = () => {
             <div className='shadow sm:overflow-hidden sm:rounded-md'>
               <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
                 <div className='w-full'>
-                  <div className='col-span-3 sm:col-span-2'>
+                  <div className='col-span-1'>
                     <label
                       htmlFor='title'
                       className='block text-sm font-medium text-gray-700'
@@ -60,7 +60,56 @@ const CreateProductDetail = () => {
                     </div>
                   </div>
                 </div>
-
+                <div className='grid grid-cols-3 gap-4'>
+                  <div className='col-span-1'>
+                    <label
+                      htmlFor='company-website'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      시
+                    </label>
+                    <div className='mt-1 flex rounded-md shadow-sm'>
+                      <select
+                        name='price'
+                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
+                      >
+                        <option>서울특별시</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className='col-span-1'>
+                    <label
+                      htmlFor='company-website'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      구
+                    </label>
+                    <div className='mt-1 flex rounded-md shadow-sm'>
+                      <select
+                        type='text'
+                        name='Category'
+                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
+                        placeholder='Title'
+                      />
+                    </div>
+                  </div>
+                  <div className='col-span-1'>
+                    <label
+                      htmlFor='company-website'
+                      className='block text-sm font-medium text-gray-700'
+                    >
+                      동
+                    </label>
+                    <div className='mt-1 flex rounded-md shadow-sm'>
+                      <select
+                        type='text'
+                        name='Category'
+                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
+                        placeholder='Title'
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div>
                   <label
                     htmlFor='productInfo'
@@ -81,7 +130,7 @@ const CreateProductDetail = () => {
                 </div>
                 <div>
                   <label className='block text-sm font-medium text-gray-700'>
-                    Product photo
+                    Product photo(Max 5 pictures)
                   </label>
                   <div className='mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6'>
                     <div className='space-y-1 text-center'>
