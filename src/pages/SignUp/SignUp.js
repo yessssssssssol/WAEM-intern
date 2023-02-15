@@ -99,9 +99,9 @@ const SignUp = () => {
             <img
               src={register}
               alt='registerIMG'
-              className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg'
+              className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg shadow-xl '
             />
-            <div className='w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none'>
+            <div className='w-full lg:w-7/12 bg-white p-5 shadow-xl rounded-lg lg:rounded-l-none'>
               <h3 className='pt-4 text-2xl text-center'>Create an Account!</h3>
               <form className='px-8 pt-6 pb-8 mb-4 bg-white rounded'>
                 <div className='mb-4 md:flex md:justify-between'>

@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn/SignIn';
 import Nav from './components/Nav/Nav';
 import SignUp from './pages/SignUp/SignUp';
 import UserDetail from './pages/UserDetail/UserDetail';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path='signIn' element={<SignIn />} />
         <Route path='signUp' element={<SignUp />} />
         <Route path='userdetail' element={<UserDetail />} />
+        <Route path='productdetail' element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

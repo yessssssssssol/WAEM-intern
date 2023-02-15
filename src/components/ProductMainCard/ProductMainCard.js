@@ -5,10 +5,10 @@ const ProductMainCard = ({ productMainCard }) => {
 
   return (
     <div className='font-mono relative w-64 flex min-h-80 flex-col justify-center m-5'>
-      <div className='mx-auto flex w-64 h-80 flex-col justify-center bg-white rounded-xl shadow-lg'>
+      <div className='mx-auto flex w-64 h-80 flex-col justify-center bg-white shadow-xl rounded-lg'>
         <img
           alt='productIMG'
-          className='aspect-video w-64 h-64 rounded-t-xl object-cover object-center'
+          className='aspect-video w-64 h-64 rounded-t-lg object-cover object-center'
           src={img}
         />
         <div className='p-4'>
