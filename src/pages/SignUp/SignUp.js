@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { API } from '../../config';
+import { API } from '../../config';
 import register from '../../assets/images/register.jpeg';
 const SignUp = () => {
   const [city, setCity] = useState('');
@@ -23,14 +23,14 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    fetch('http://172.20.10.4:3000/user/signup')
+    fetch(`${API.SIGNUP}`)
       .then((res) => res.json())
       .then((data) => {
         setCityList(data.city);
       });
   }, [city, centre]);
   useEffect(() => {
-    fetch('http://172.20.10.4:3000/user/signup')
+    fetch(`${API.SIGNUP}`)
       .then((res) => res.json())
       .then((data) => {
         // setCentreList(data.address.filter((item) => city === item.city_id));
@@ -51,7 +51,7 @@ const SignUp = () => {
 
   const onClickCheckEmail = (e) => {
     e.preventDefault();
-    fetch('http://172.20.10.4:3000/user/emailCheck', {
+    fetch(`${API.EMAIL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({
@@ -71,7 +71,7 @@ const SignUp = () => {
 
   const onClickSignUp = (e) => {
     e.preventDefault();
-    fetch('http://172.20.10.4:3000/user/signup', {
+    fetch(`${API.SIGNUP}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({

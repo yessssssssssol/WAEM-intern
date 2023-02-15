@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { API } from '../../config';
 const SignIn = () => {
   const [loginInfo, setLoginInfo] = useState({
     loginEmail: '',
@@ -9,7 +9,7 @@ const SignIn = () => {
   const { loginEmail, loginPassword } = loginInfo;
   const onClickLogin = (e) => {
     e.preventDefault();
-    fetch('http://172.20.10.4:3000/user/signin', {
+    fetch(`${API.SIGNIN}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({
