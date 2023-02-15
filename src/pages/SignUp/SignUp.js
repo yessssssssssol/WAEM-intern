@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from 'react';
+// import { API } from '../../config';
 import register from '../../assets/images/register.jpeg';
 const SignUp = () => {
   const [city, setCity] = useState('');
   const [centre, setCentre] = useState('');
   const [cityList, setCityList] = useState([]);
   const [centreList, setCentreList] = useState([]);
+
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    nickname: '',
+    email: '',
+    password: '',
+    passwordCheck: '',
+  });
+
+  const { name, nickname, email, password, passwordCheck } = userInfo;
+
+  const handleUserInfo = (e) => {
+    const { name, value } = e.target;
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
   useEffect(() => {
     fetch('http://172.20.10.4:3000/user/signup')
@@ -33,10 +49,9 @@ const SignUp = () => {
     setCentre(e.target.value);
   };
 
-  /*
   const onClickCheckEmail = (e) => {
     e.preventDefault();
-    fetch('#', {
+    fetch('http://172.20.10.4:3000/user/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({
@@ -45,14 +60,36 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.message === '사용 불가능한 이메일입니다.') {
+        console.log(result);
+        if (result.message === 'EMAIL_ALREADY_EXISTS') {
           alert('이미 사용 중인 이메일입니다.');
         } else {
           alert('사용 가능한 이메일입니다.');
         }
       });
   };
-*/
+
+  const onClickSignUp = (e) => {
+    e.preventDefault();
+    fetch('http://172.20.10.4:3000/user/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({
+        name: name,
+        nickname: nickname,
+        email: email,
+        password: password,
+        passwordCheck: passwordCheck,
+        regionId: 1,
+        cityId: city,
+        addressId: centre,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
 
   return (
     <div className='font-mono'>
@@ -76,6 +113,8 @@ const SignUp = () => {
                       className='w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='Name'
                       type='text'
+                      name='name'
+                      onChange={handleUserInfo}
                       placeholder='Name'
                     />
                   </div>
@@ -90,22 +129,30 @@ const SignUp = () => {
                       className='w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='nickName'
                       type='text'
+                      name='nickname'
+                      onChange={handleUserInfo}
                       placeholder='Nick Name'
                     />
                   </div>
                 </div>
                 <div className='mb-4'>
-                  <label
-                    className='block mb-2 text-sm font-bold text-gray-700'
-                    for='Email'
-                  >
-                    Email
-                  </label>
-                  <button className='block'>✔︎</button>
+                  <div className='flex justify-between'>
+                    <label
+                      className='block mb-2 text-sm font-bold text-gray-700'
+                      for='Email'
+                    >
+                      Email
+                    </label>
+                    <button className='block' onClick={onClickCheckEmail}>
+                      ✔︎
+                    </button>
+                  </div>
                   <input
                     className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     id='email'
                     type='email'
+                    name='email'
+                    onChange={handleUserInfo}
                     placeholder='Email'
                   />
                 </div>
@@ -160,6 +207,8 @@ const SignUp = () => {
                       className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='password'
                       type='password'
+                      name='password'
+                      onChange={handleUserInfo}
                       placeholder='Password'
                     />
                   </div>
@@ -171,6 +220,8 @@ const SignUp = () => {
                       className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='c_password'
                       type='password'
+                      name='passwordCheck'
+                      onChange={handleUserInfo}
                       placeholder='Confirm Password'
                     />
                   </div>
@@ -179,6 +230,7 @@ const SignUp = () => {
                   <button
                     className='w-full px-4 py-2 font-bold text-white bg-gray-900 rounded-full hover:bg-gray-700 focus:outline-none focus:shadow-outline'
                     type='button'
+                    onClick={onClickSignUp}
                   >
                     Register Account
                   </button>
