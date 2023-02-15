@@ -51,7 +51,7 @@ const SignUp = () => {
 
   const onClickCheckEmail = (e) => {
     e.preventDefault();
-    fetch('http://172.20.10.4:3000/user/signup', {
+    fetch('http://172.20.10.4:3000/user/emailCheck', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify({
