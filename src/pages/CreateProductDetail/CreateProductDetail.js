@@ -6,21 +6,29 @@ const CreateProductDetail = () => {
   const [centre, setCentre] = useState('');
   const [cityList, setCityList] = useState([]);
   const [centreList, setCentreList] = useState([]);
+  const [category, setCategory] = useState('');
+  const [categoryList, setCategoryList] = useState([]);
 
   const [createProduct, setCreateProduct] = useState({
     productTitle: '',
     productPrice: '',
-    category: '',
     productInfoDetail: '',
   });
 
-  const { productTitle, productPrice, category, productInfoDetail } =
-    createProduct;
+  const { productTitle, productPrice, productInfoDetail } = createProduct;
 
   const handleProductInfo = (e) => {
     const { name, value } = e.target;
     setCreateProduct((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    fetch('./data/category.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setCategoryList(data);
+      });
+  }, [city, centre]);
 
   useEffect(() => {
     fetch(`${API.SIGNUP}`)
@@ -29,15 +37,12 @@ const CreateProductDetail = () => {
         setCityList(data.city);
       });
   }, [city, centre]);
+
   useEffect(() => {
     fetch(`${API.SIGNUP}`)
       .then((res) => res.json())
       .then((data) => {
-        // setCentreList(data.address.filter((item) => city === item.city_id));
         setCentreList(data.address.filter((item) => city == item.city_id));
-
-        console.log(data.address);
-        console.log(centreList);
       });
   }, [city, centre]);
 
@@ -128,7 +133,13 @@ const CreateProductDetail = () => {
                         onChange={handleProductInfo}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Title'
-                      />
+                      >
+                        {categoryList.map((category) => (
+                          <option key={category.id} value={city.id}>
+                            {category.name}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 </div>
