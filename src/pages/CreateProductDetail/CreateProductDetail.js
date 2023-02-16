@@ -1,6 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { API } from '../../config';
 
 const CreateProductDetail = () => {
+  const [city, setCity] = useState('');
+  const [centre, setCentre] = useState('');
+  const [cityList, setCityList] = useState([]);
+  const [centreList, setCentreList] = useState([]);
+
+  const [createProduct, setCreateProduct] = useState({
+    productTitle: '',
+    productPrice: '',
+    category: '',
+    productInfoDetail: '',
+  });
+
+  const { productTitle, productPrice, category, productInfoDetail } =
+    createProduct;
+
+  const handleProductInfo = (e) => {
+    const { name, value } = e.target;
+    setCreateProduct((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useEffect(() => {
+    fetch(`${API.SIGNUP}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCityList(data.city);
+      });
+  }, [city, centre]);
+  useEffect(() => {
+    fetch(`${API.SIGNUP}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // setCentreList(data.address.filter((item) => city === item.city_id));
+        setCentreList(data.address.filter((item) => city == item.city_id));
+
+        console.log(data.address);
+        console.log(centreList);
+      });
+  }, [city, centre]);
+
+  const handleCityChange = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleCentreChange = (e) => {
+    setCentre(e.target.value);
+  };
+
+  const onClickCreateProduct = (e) => {
+    e.preventDefault();
+    fetch(`${API.CREATE}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({
+        title: productTitle,
+        price: productPrice,
+        category: category,
+        productInfoDetail: productInfoDetail,
+        regionId: 1,
+        cityId: city,
+        addressId: centre,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
+
   return (
     <div className='w-full my-24 container mx-auto'>
       <div className='w-full justify-center px-6 my-12'>
@@ -19,7 +88,8 @@ const CreateProductDetail = () => {
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <input
                         type='text'
-                        name='title'
+                        name='productTitle'
+                        onChange={handleProductInfo}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Title'
                       />
@@ -37,7 +107,8 @@ const CreateProductDetail = () => {
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <input
                         type='text'
-                        name='price'
+                        name='productPrice'
+                        onChange={handleProductInfo}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Price'
                       />
@@ -54,6 +125,7 @@ const CreateProductDetail = () => {
                       <select
                         type='text'
                         name='Category'
+                        onChange={handleProductInfo}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Title'
                       />
@@ -86,11 +158,16 @@ const CreateProductDetail = () => {
                     </label>
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <select
-                        type='text'
-                        name='Category'
+                        value={city}
+                        onChange={handleCityChange}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
-                        placeholder='Title'
-                      />
+                      >
+                        {cityList.map((city) => (
+                          <option key={city.id} value={city.id}>
+                            {city.name}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                   <div className='col-span-1'>
@@ -102,11 +179,16 @@ const CreateProductDetail = () => {
                     </label>
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <select
-                        type='text'
-                        name='Category'
+                        value={centre.id}
+                        onChange={handleCentreChange}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
-                        placeholder='Title'
-                      />
+                      >
+                        {centreList.map((centre) => (
+                          <option key={centre.id} value={centre.id}>
+                            {centre.name}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -119,12 +201,12 @@ const CreateProductDetail = () => {
                   </label>
                   <div className='mt-1'>
                     <textarea
-                      id='ProductInfo'
-                      name='ProductInfo'
+                      name='productInfoDetail'
                       rows={3}
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                       placeholder='Product Info'
                       defaultValue={''}
+                      onChange={handleProductInfo}
                     />
                   </div>
                 </div>
@@ -174,6 +256,7 @@ const CreateProductDetail = () => {
                 <button
                   type='submit'
                   className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  onClick={onClickCreateProduct}
                 >
                   Save
                 </button>
