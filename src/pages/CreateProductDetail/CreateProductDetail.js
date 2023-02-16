@@ -28,7 +28,7 @@ const CreateProductDetail = () => {
       .then((data) => {
         setCategoryList(data);
       });
-  }, [city, centre]);
+  }, []);
 
   useEffect(() => {
     fetch(`${API.SIGNUP}`)
