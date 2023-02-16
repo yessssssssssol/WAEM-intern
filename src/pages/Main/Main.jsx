@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductMainCard from '../../components/ProductMainCard/ProductMainCard';
-
+import DragDrop from '../CreateProductDetail/DragDrop';
 const Main = () => {
   const [productMainCard, setProductMainCard] = useState([]);
-  fetch(
-    'https://my-json-server.typicode.com/legobitna/hnm-react-router/products/'
-  )
-    .then((response) => response.json())
-    .then((data) => setProductMainCard(data));
+  useEffect(() => {
+    fetch('./data/product.json')
+      .then((response) => response.json())
+      .then((data) => setProductMainCard(data));
+  }, []);
 
   return (
     <div className='w-full'>
+      <DragDrop />
       <div className='container mx-auto my-10 flex flex-wrap justify-center content-start'>
         {productMainCard.map((productMainCard) => (
           <ProductMainCard
