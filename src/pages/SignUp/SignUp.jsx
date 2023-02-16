@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
 import register from '../../assets/images/register.jpeg';
 const SignUp = () => {
@@ -16,6 +17,8 @@ const SignUp = () => {
   });
 
   const { name, nickname, email, password, passwordCheck } = userInfo;
+
+  const navigate = useNavigate();
 
   const handleUserInfo = (e) => {
     const { name, value } = e.target;
@@ -35,9 +38,6 @@ const SignUp = () => {
       .then((data) => {
         // setCentreList(data.address.filter((item) => city === item.city_id));
         setCentreList(data.address.filter((item) => city == item.city_id));
-
-        console.log(data.address);
-        console.log(centreList);
       });
   }, [city, centre]);
 
@@ -88,6 +88,8 @@ const SignUp = () => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
+        alert('회원가입에 성공했습니다.');
+        navigate('/login');
       });
   };
 

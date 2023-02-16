@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
 const SignIn = () => {
   const [loginInfo, setLoginInfo] = useState({
     loginEmail: '',
     loginPassword: '',
   });
-
   const { loginEmail, loginPassword } = loginInfo;
+
+  const navigate = useNavigate();
+
   const onClickLogin = (e) => {
     e.preventDefault();
     fetch(`${API.SIGNIN}`, {
@@ -19,7 +22,10 @@ const SignIn = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        localStorage.setItem('Token', result.accessToken);
         console.log(result);
+        alert('로그인에 성공했습니다.');
+        navigate('/');
       });
   };
 
