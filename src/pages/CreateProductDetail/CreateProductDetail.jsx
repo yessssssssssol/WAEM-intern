@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { API } from '../../config';
 import UploadImg from './UploadImg';
+import DragDrop from './DragDrop';
 
 const CreateProductDetail = () => {
   const [city, setCity] = useState('');
@@ -9,6 +10,9 @@ const CreateProductDetail = () => {
   const [centreList, setCentreList] = useState([]);
   const [category, setCategory] = useState('');
   const [categoryList, setCategoryList] = useState([]);
+  const [files, setFiles] = useState([]);
+  const dragRef = useRef(null);
+  const fileId = useRef(0);
 
   const [createProduct, setCreateProduct] = useState({
     productTitle: '',
@@ -76,18 +80,71 @@ const CreateProductDetail = () => {
       });
   };
 
+  /*
+  const previewImg = () => {
+    const file = document.querySelector('input[type=file]').files[0];
+    const preview = document.querySelector('#imgBox');
+    const reader = new FileReader();
+    reader.onLoad = () => {
+      const dataURL = reader.result;
+      preview.src = `${dataURL}`;
+    };
+    console.log('reader : ', reader);
+    console.log('file : ', file);
+    console.log('files : ', files);
+    console.log('reader.result : ', reader.result);
+
+    if (file) {
+      reader.readAsDataURL(file);
+      console.log('reader.result : ', reader.result);
+    }
+  };
+  */
+
+  const onChangeFiles = useCallback(
+    (e) => {
+      if (files.length < 5) {
+        let selectFiles = [];
+        let tempFiles = files;
+
+        if (e.type === 'drop') {
+          selectFiles = e.dataTransfer.files;
+        } else {
+          selectFiles = e.target.files;
+        }
+
+        for (const file of selectFiles) {
+          tempFiles = [
+            ...tempFiles,
+            {
+              id: fileId.current++,
+              object: file,
+            },
+          ];
+        }
+        setFiles(tempFiles);
+      } else {
+        alert('사진은 최대 5장 입니다.');
+        console.log(files);
+      }
+    },
+    [files]
+  );
+
   return (
-    <div className='w-full my-24 container mx-auto'>
+    <div className='w-full font-sans my-24 container mx-auto'>
       <div className='w-full justify-center px-6 my-12'>
         <div className='mt-5 md:col-span-2 md:mt-0'>
           <form action='#' method='POST'>
             <div className='shadow sm:overflow-hidden sm:rounded-md'>
               <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
+                <h3 className='pt-4 text-2xl text-center'>상품 등록하기</h3>
+
                 <div className='w-full'>
                   <div className='col-span-1'>
                     <label
                       htmlFor='title'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm text-gray-700 font-bold'
                     >
                       Title
                     </label>
@@ -106,7 +163,7 @@ const CreateProductDetail = () => {
                   <div className='col-span-2'>
                     <label
                       htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm font-bold text-gray-700'
                     >
                       Price
                     </label>
@@ -123,7 +180,7 @@ const CreateProductDetail = () => {
                   <div className='col-span-1'>
                     <label
                       htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm font-bold text-gray-700'
                     >
                       Category
                     </label>
@@ -148,7 +205,7 @@ const CreateProductDetail = () => {
                   <div className='col-span-1'>
                     <label
                       htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm font-bold text-gray-700'
                     >
                       시
                     </label>
@@ -164,7 +221,7 @@ const CreateProductDetail = () => {
                   <div className='col-span-1'>
                     <label
                       htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm font-bold text-gray-700'
                     >
                       구
                     </label>
@@ -185,7 +242,7 @@ const CreateProductDetail = () => {
                   <div className='col-span-1'>
                     <label
                       htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
+                      className='block text-sm font-bold text-gray-700'
                     >
                       동
                     </label>
@@ -207,7 +264,7 @@ const CreateProductDetail = () => {
                 <div>
                   <label
                     htmlFor='productInfo'
-                    className='block text-sm font-medium text-gray-700'
+                    className='block text-sm font-bold text-gray-700'
                   >
                     Product Info
                   </label>
@@ -223,53 +280,23 @@ const CreateProductDetail = () => {
                   </div>
                 </div>
                 <div>
-                  <label className='block text-sm font-medium text-gray-700'>
+                  <label className='block text-sm font-bold text-gray-700'>
                     Product photo(Max 5 pictures)
                   </label>
-                  <div className='mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6'>
-                    <div className='space-y-1 text-center'>
-                      <svg
-                        className='mx-auto h-12 w-12 text-gray-400'
-                        stroke='currentColor'
-                        fill='none'
-                        viewBox='0 0 48 48'
-                        aria-hidden='true'
-                      >
-                        <path
-                          d='M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02'
-                          strokeWidth={2}
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                      </svg>
-                      <div className='flex text-sm text-gray-600'>
-                        <label
-                          htmlFor='file-upload'
-                          className='relative cursor-pointer rounded-md bg-white font-medium text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2 hover:text-green-800'
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id='file-upload'
-                            name='productImages'
-                            type='file'
-                            className='sr-only'
-                            multiple={true}
-                          />
-                        </label>
-                        <p className='pl-1'>or drag and drop</p>
-                      </div>
-                      <p className='text-xs text-gray-500'>
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
-                  </div>
-                  <UploadImg />
+
+                  <DragDrop
+                    files={files}
+                    setFiles={setFiles}
+                    onChangeFiles={onChangeFiles}
+                    dragRef={dragRef}
+                    fileId={fileId}
+                  />
                 </div>
               </div>
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
                 <button
                   type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                   onClick={onClickCreateProduct}
                 >
                   Save

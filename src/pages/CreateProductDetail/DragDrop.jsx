@@ -1,38 +1,7 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
-import { API } from '../../config';
+import React, { useCallback, useState, useEffect } from 'react';
 
-const DragDrop = () => {
+const DragDrop = ({ files, setFiles, onChangeFiles, dragRef, fileId }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [files, setFiles] = useState([]);
-
-  const dragRef = useRef(null);
-  const fileId = useRef(0);
-
-  const onChangeFiles = useCallback(
-    (e) => {
-      let selectFiles = [];
-      let tempFiles = files;
-
-      if (e.type === 'drop') {
-        selectFiles = e.dataTransfer.files;
-      } else {
-        selectFiles = e.target.files;
-      }
-
-      for (const file of selectFiles) {
-        tempFiles = [
-          ...tempFiles,
-          {
-            id: fileId.current++,
-            object: file,
-          },
-        ];
-      }
-
-      setFiles(tempFiles);
-    },
-    [files]
-  );
 
   const handleFilterFile = useCallback(
     (id) => {
@@ -97,24 +66,7 @@ const DragDrop = () => {
     return () => resetDragEvents();
   }, [initDragEvents, resetDragEvents]);
 
-  const previewImg = () => {
-    const file = document.querySelector('input[type=file]').files[0];
-    const preview = document.querySelector('#imgBox');
-    const reader = new FileReader();
-    reader.onLoad = () => {
-      const dataURL = reader.result;
-      preview.src = `${dataURL}`;
-    };
-    console.log('reader : ', reader);
-    console.log('file : ', file);
-    console.log('files : ', files);
-
-    if (file) {
-      reader.readAsDataURL(file);
-      console.log('reader.result : ', reader.result);
-    }
-  };
-
+  /*
   const onSaveImage = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -144,13 +96,21 @@ const DragDrop = () => {
         console.log(result);
       });
   };
+*/
 
   return (
-    <form id='form'>
-      <label htmlFor='fileUpload' ref={dragRef} onChange={previewImg}>
-        <div className='font-mono w-[300px] h-[300px] bg-[#333333] text-white'>
-          파일 첨부
-          <div className='DragDrop-Files'>
+    <div
+      ref={dragRef}
+      onChange={onChangeFiles}
+      className='mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6'
+    >
+      <label
+        htmlFor='fileUpload'
+        className='relative cursor-pointer rounded-md bg-white font-medium text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2 hover:text-green-800'
+      >
+        <div className='relative cursor-pointer rounded-md bg-white font-bold text-sm text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2'>
+          Upload a file
+          <div className='justify-center'>
             {files.length > 0 &&
               files.map((file) => {
                 const {
@@ -159,16 +119,10 @@ const DragDrop = () => {
                 } = file;
 
                 return (
-                  <div className='w-[300px] flex' key={id}>
-                    <div className='font-mono'>{name}</div>
-                    <img
-                      id='imgBox'
-                      className='w-10 h-10'
-                      alt='img'
-                      src=''
-                    ></img>
+                  <div className='w-auto flex font-sans font-light' key={id}>
+                    <div className='font-sans'>{name}</div>
                     <div
-                      className='ml-3  text-sm text-white'
+                      className='ml-3  text-sm text-green-800'
                       onClick={() => handleFilterFile(id)}
                     >
                       x
@@ -183,11 +137,9 @@ const DragDrop = () => {
           id='fileUpload'
           style={{ display: 'none' }}
           multiple={true}
-          onChange={onChangeFiles}
         />
       </label>
-      <button onClick={onSaveImage}>이미지 저장</button>
-    </form>
+    </div>
   );
 };
 

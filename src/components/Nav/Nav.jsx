@@ -26,7 +26,7 @@ const Nav = () => {
     return classes.filter(Boolean).join(' ');
   }
   return (
-    <div className='h-full font-mono'>
+    <div className='h-full font-sans'>
       <div className='min-h-full'>
         <Disclosure as='nav' className='bg-[#111111]'>
           {({ open }) => (

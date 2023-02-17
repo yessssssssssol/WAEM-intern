@@ -5,7 +5,7 @@ const ProductMainCard = ({ productMainCard }) => {
     productMainCard;
 
   return (
-    <div className='font-mono relative w-64 flex min-h-80 flex-col justify-center m-5'>
+    <div className='font-sans relative w-64 flex min-h-80 flex-col justify-center m-5'>
       <div className='mx-auto flex w-64 h-80 flex-col justify-center bg-white shadow-xl rounded-lg'>
         <img
           alt='productIMG'

@@ -1,36 +1,6 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
-const UploadImg = () => {
+import React, { useCallback, useState, useEffect } from 'react';
+const UploadImg = ({ files, setFiles, onChangeFiles, dragRef }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [files, setFiles] = useState([]);
-
-  const dragRef = useRef(null);
-  const fileId = useRef(0);
-
-  const onChangeFiles = useCallback(
-    (e) => {
-      let selectFiles = [];
-      let tempFiles = files;
-
-      if (e.type === 'drop') {
-        selectFiles = e.dataTransfer.files;
-      } else {
-        selectFiles = e.target.files;
-      }
-
-      for (const file of selectFiles) {
-        tempFiles = [
-          ...tempFiles,
-          {
-            id: fileId.current++,
-            object: file,
-          },
-        ];
-      }
-
-      setFiles(tempFiles);
-    },
-    [files]
-  );
 
   const handleFilterFile = useCallback(
     (id) => {
@@ -64,7 +34,6 @@ const UploadImg = () => {
     (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       onChangeFiles(e);
       setIsDragging(false);
     },

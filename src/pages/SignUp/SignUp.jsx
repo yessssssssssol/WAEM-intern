@@ -94,7 +94,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='font-mono'>
+    <div className='font-sans'>
       <div className='container mx-auto '>
         <div className='flex justify-center px-6 my-12'>
           <div className='w-full xl:w-3/4 lg:w-11/12 flex'>

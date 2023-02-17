@@ -35,7 +35,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className='font-mono flex my-24 justify-center '>
+    <div className='font-sans flex my-24 justify-center '>
       <div className='bg-white lg:w-5/12 md:6/12 w-10/12 shadow-xl rounded-lg'>
         <div className='bg-[#333333] absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8'>
           <svg width='32' height='32' viewBox='0 0 24 24' fill='#FFF'>

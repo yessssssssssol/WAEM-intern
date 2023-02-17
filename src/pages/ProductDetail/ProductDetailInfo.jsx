@@ -16,7 +16,7 @@ const ProductDetailInfo = ({ product }) => {
   return (
     <div
       id='viewerBox'
-      className='font-mono lg:p-10 md:p-6 p-4 bg-white dark:bg-gray-900 shadow-xl rounded-lg'
+      className='font-sans lg:p-10 md:p-6 p-4 bg-white dark:bg-gray-900 shadow-xl rounded-lg'
     >
       <div className='mt-3 md:mt-4 lg:mt-0 flex flex-col lg:flex-row items-stretch justify-center lg:space-x-8'>
         <div className='lg:w-1/2 flex justify-between items-stretch bg-gray-50  px-2 py-20 md:py-6 md:px-6 lg:py-24'>
