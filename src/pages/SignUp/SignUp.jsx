@@ -145,8 +145,11 @@ const SignUp = () => {
                     >
                       Email
                     </label>
-                    <button className='block' onClick={onClickCheckEmail}>
-                      ✔︎
+                    <button
+                      className='block text-sm text-green-700 hover:text-gray-700 leading-1'
+                      onClick={onClickCheckEmail}
+                    >
+                      check
                     </button>
                   </div>
                   <input
@@ -241,7 +244,7 @@ const SignUp = () => {
                 <div className='text-center'>
                   <a
                     className='inline-block text-sm text-gray-500 align-baseline hover:text-gray-800'
-                    href='/login'
+                    href='/signin'
                   >
                     Already have an account? Login!
                   </a>

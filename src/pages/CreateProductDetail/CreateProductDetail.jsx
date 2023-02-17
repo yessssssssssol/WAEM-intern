@@ -17,14 +17,18 @@ const CreateProductDetail = () => {
   const [createProduct, setCreateProduct] = useState({
     productTitle: '',
     productPrice: '',
-    productInfoDetail: '',
+    productInfo: '',
   });
+  const { productTitle, productPrice, productInfo } = createProduct;
 
-  const { productTitle, productPrice, productInfoDetail } = createProduct;
+  // useEffect(() => {
+  //   handleProductInfo();
+  // }, [createProduct]);
 
   const handleProductInfo = (e) => {
     const { name, value } = e.target;
     setCreateProduct((prev) => ({ ...prev, [name]: value }));
+    console.log(productInfo);
   };
 
   useEffect(() => {
@@ -59,48 +63,9 @@ const CreateProductDetail = () => {
     setCentre(e.target.value);
   };
 
-  const onClickCreateProduct = (e) => {
-    e.preventDefault();
-    fetch(`${API.CREATE}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({
-        title: productTitle,
-        price: productPrice,
-        category: category,
-        productInfoDetail: productInfoDetail,
-        regionId: 1,
-        cityId: city,
-        addressId: centre,
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-      });
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
   };
-
-  /*
-  const previewImg = () => {
-    const file = document.querySelector('input[type=file]').files[0];
-    const preview = document.querySelector('#imgBox');
-    const reader = new FileReader();
-    reader.onLoad = () => {
-      const dataURL = reader.result;
-      preview.src = `${dataURL}`;
-    };
-    console.log('reader : ', reader);
-    console.log('file : ', file);
-    console.log('files : ', files);
-    console.log('reader.result : ', reader.result);
-
-    if (file) {
-      reader.readAsDataURL(file);
-      console.log('reader.result : ', reader.result);
-    }
-  };
-  */
-
   const onChangeFiles = useCallback(
     (e) => {
       if (files.length < 5) {
@@ -130,6 +95,59 @@ const CreateProductDetail = () => {
     },
     [files]
   );
+  const onClickCreateProduct = (e) => {
+    e.preventDefault();
+    e.persist();
+
+    let formData = new FormData();
+    console.log('file : ', files);
+    files.map((file) => {
+      formData.append('images', file.object);
+    });
+    // title, price, content, category_id
+    formData.append('title', JSON.stringify(productTitle));
+    formData.append('price', JSON.stringify(parseInt(productPrice)));
+    formData.append('content', JSON.stringify(productInfo));
+    formData.append('categoryId', JSON.stringify(parseInt(category)));
+    formData.append('regionId', JSON.stringify(parseInt(1)));
+    formData.append('cityId', JSON.stringify(parseInt(city)));
+    formData.append('addressId', JSON.stringify(parseInt(centre)));
+
+    fetch(`${API.CREATE}`, {
+      method: 'POST',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiJ9.OQ.8YXeAtXK3ux3nVjRj9eYS7U_U1h2ygG7TWxyMrHesmc',
+      },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.message);
+      });
+  };
+
+  console.log(productTitle);
+  /*
+  const previewImg = () => {
+    const file = document.querySelector('input[type=file]').files[0];
+    const preview = document.querySelector('#imgBox');
+    const reader = new FileReader();
+    reader.onLoad = () => {
+      const dataURL = reader.result;
+      preview.src = `${dataURL}`;
+    };
+    console.log('reader : ', reader);
+    console.log('file : ', file);
+    console.log('files : ', files);
+    console.log('reader.result : ', reader.result);
+
+    if (file) {
+      reader.readAsDataURL(file);
+      console.log('reader.result : ', reader.result);
+    }
+  };
+  */
 
   return (
     <div className='w-full font-sans my-24 container mx-auto'>
@@ -139,7 +157,6 @@ const CreateProductDetail = () => {
             <div className='shadow sm:overflow-hidden sm:rounded-md'>
               <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
                 <h3 className='pt-4 text-2xl text-center'>상품 등록하기</h3>
-
                 <div className='w-full'>
                   <div className='col-span-1'>
                     <label
@@ -186,14 +203,14 @@ const CreateProductDetail = () => {
                     </label>
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <select
-                        type='text'
-                        name='Category'
-                        onChange={handleProductInfo}
+                        name='category'
+                        value={category.id}
+                        onChange={handleCategoryChange}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                         placeholder='Title'
                       >
                         {categoryList.map((category) => (
-                          <option key={category.id} value={city.id}>
+                          <option key={category.id} value={category.id}>
                             {category.name}
                           </option>
                         ))}
@@ -270,7 +287,7 @@ const CreateProductDetail = () => {
                   </label>
                   <div className='mt-1'>
                     <textarea
-                      name='productInfoDetail'
+                      name='productInfo'
                       rows={3}
                       className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
                       placeholder='Product Info'

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import rabbit from '../../assets/images/rabbit.jpeg';
+import ProductImage from './ProductImage';
 const ProductDetailInfo = ({ product }) => {
   const {
     title,

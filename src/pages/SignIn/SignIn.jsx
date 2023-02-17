@@ -77,7 +77,7 @@ const SignIn = () => {
             Login
           </button>
           <a
-            href='/register'
+            href='/signup'
             className='text-gray-900 font-medium  p-2 md:p-4  uppercase w-full'
           >
             Register

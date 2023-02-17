@@ -1,12 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProductMainCard = ({ productMainCard }) => {
   const { product_image, title, category, price, region, city, address } =
     productMainCard;
 
+  const navigate = useNavigate();
+  const goToDetail = () => {
+    navigate('/productdetail');
+  };
+
   return (
     <div className='font-sans relative w-64 flex min-h-80 flex-col justify-center m-5'>
-      <div className='mx-auto flex w-64 h-80 flex-col justify-center bg-white shadow-xl rounded-lg'>
+      <div
+        onClick={goToDetail}
+        className='mx-auto flex w-64 h-80 flex-col justify-center bg-white shadow-xl rounded-lg'
+      >
         <img
           alt='productIMG'
           className='aspect-video w-64 h-64 rounded-t-lg object-cover object-center'

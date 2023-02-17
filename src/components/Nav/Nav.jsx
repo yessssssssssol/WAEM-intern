@@ -10,15 +10,14 @@ const Nav = () => {
     imageUrl: rabbit,
   };
   const navigation = [
-    { name: 'main', href: '/', current: false },
+    { name: 'Main', href: '/', current: false },
     { name: 'SignUp', href: '/SignUp', current: false },
     { name: 'SignIn', href: '/SignIn', current: false },
-    { name: 'userdetail', href: '/userdetail', current: false },
-    { name: 'productdetail', href: '/productdetail', current: false },
+    { name: 'Userdetail', href: '/userdetail', current: false },
+    { name: 'CreateProduct', href: '/createProduct', current: false },
   ];
   const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
+    { name: 'Your Profile', href: '/userDetail' },
     { name: 'Sign out', href: '#' },
   ];
 
