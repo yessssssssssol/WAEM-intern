@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
 import UploadImg from './UploadImg';
 import DragDrop from './DragDrop';
@@ -21,6 +22,7 @@ const CreateProductDetail = () => {
   });
   const { productTitle, productPrice, productInfo } = createProduct;
 
+  const navigate = useNavigate();
   // useEffect(() => {
   //   handleProductInfo();
   // }, [createProduct]);
@@ -104,7 +106,6 @@ const CreateProductDetail = () => {
     files.map((file) => {
       formData.append('images', file.object);
     });
-    // title, price, content, category_id
     formData.append('title', JSON.stringify(productTitle));
     formData.append('price', JSON.stringify(parseInt(productPrice)));
     formData.append('content', JSON.stringify(productInfo));
@@ -122,12 +123,16 @@ const CreateProductDetail = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data.message);
+      .then((res) => {
+        if (res.message !== 'PRODUCT_REGISTER_SUCCESS') {
+          return alert('다시 입력해주세요');
+        } else {
+          alert('상품 등록에 성공하셨습니다.');
+          navigate('/');
+        }
       });
   };
 
-  console.log(productTitle);
   /*
   const previewImg = () => {
     const file = document.querySelector('input[type=file]').files[0];
