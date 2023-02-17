@@ -23,9 +23,14 @@ const SignIn = () => {
       .then((response) => response.json())
       .then((result) => {
         localStorage.setItem('Token', result.accessToken);
-        console.log(result);
-        alert('로그인에 성공했습니다.');
-        navigate('/');
+        if (result.message === 'PLEASE_CHECK_YOUR_EMAIL') {
+          return alert('없는 이메일 입니다.');
+        } else if (result.message === 'PLEASE_CHECK_YOUR_PASSWORD') {
+          return alert('비밀번호를 확인해주세요.');
+        } else {
+          alert('로그인에 성공했습니다.');
+          navigate('/');
+        }
       });
   };
 

@@ -87,9 +87,17 @@ const SignUp = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-        alert('회원가입에 성공했습니다.');
-        navigate('/login');
+        console.log(result.message);
+        if (result.message === 'KEY_ERROR') {
+          return alert('다시 한번 확인해주세요');
+        } else if (result.message === 'PASSWORD_FORMAT_IS_NOT_CORRECT') {
+          return alert('비밀번호 양식을 확인해주세요');
+        } else if (result.message === 'PASSWORD_DO_NOT_MATCH') {
+          return alert('비밀번호가 일치하지 않습니다.');
+        } else {
+          alert('회원가입에 성공했습니다.');
+          navigate('/login');
+        }
       });
   };
 
@@ -214,7 +222,7 @@ const SignUp = () => {
                       type='password'
                       name='password'
                       onChange={handleUserInfo}
-                      placeholder='Password'
+                      placeholder='특수문자 포함 8자리 이상'
                     />
                   </div>
                   <div className='md:ml-2'>
