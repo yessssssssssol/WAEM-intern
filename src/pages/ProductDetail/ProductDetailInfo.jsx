@@ -1,5 +1,6 @@
 import React from 'react';
-import aesop from '../../assets/images/aesop.webp';
+import { useNavigate } from 'react-router-dom';
+import rabbit from '../../assets/images/rabbit.jpeg';
 const ProductDetailInfo = ({ product }) => {
   const {
     title,
@@ -12,6 +13,10 @@ const ProductDetailInfo = ({ product }) => {
     address,
     product_image,
   } = product;
+  const navigate = useNavigate();
+  const goToUser = () => {
+    navigate('/userdetail');
+  };
 
   return (
     <div
@@ -45,11 +50,15 @@ const ProductDetailInfo = ({ product }) => {
           <div className='slider'>
             <div className='slide-ana lg:relative'>
               <div className='flex'>
-                <img
-                  src={aesop}
-                  alt='A black chair with wooden legs'
-                  className='w-full h-full'
-                />
+                {product_image
+                  ? product_image.map((image) => {
+                      <img
+                        src={image}
+                        alt='A black chair with wooden legs'
+                        className='w-full h-full'
+                      />;
+                    })
+                  : null}
               </div>
             </div>
           </div>
@@ -77,9 +86,24 @@ const ProductDetailInfo = ({ product }) => {
           </div>
         </div>
         <div className='lg:w-1/2 flex flex-col justify-center mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0'>
-          <p className='flex item-start h-full text-sm leading-normal text-gray-900 dark:text-white mt-2'>
+          <p className='flex justify-end text-sm leading-normal text-gray-900 dark:text-white mt-2'>
             {region} {city} {address}
           </p>
+          <div className='flex flex-row justify-end w-full h-8 mt-4 mb-8'>
+            <div
+              onClick={goToUser}
+              className='flex flex-row justify-center items-center shadow hover:bg-gray-400/10 h-[35px] w-[85px] border-solid cursor-pointer'
+            >
+              <p className='flex flex-col justify-center mr-2 text-sm font-semibold'>
+                {nickname}
+              </p>
+              <img
+                src={rabbit}
+                alt='profile'
+                className='shadow-xl rounded-full align-middle border-none lg: w-8 h-8'
+              />
+            </div>
+          </div>
           <p className='text-base leading-normal text-gray-600 dark:text-white mt-2'>
             {category}
           </p>
@@ -90,7 +114,7 @@ const ProductDetailInfo = ({ product }) => {
             {content}
           </p>
           <p className='text-base leading-normal text-gray-600 dark:text-white mt-2'>
-            {price}
+            {parseInt(price).toLocaleString()}원
           </p>
           <p className='text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10'></p>
           <div className='flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 mt-8 md:mt-16'>

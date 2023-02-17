@@ -11,7 +11,6 @@ const Main = () => {
 
   return (
     <div className='w-full'>
-      <DragDrop />
       <div className='container mx-auto my-10 flex flex-wrap justify-center content-start'>
         {productMainCard.map((productMainCard) => (
           <ProductMainCard
