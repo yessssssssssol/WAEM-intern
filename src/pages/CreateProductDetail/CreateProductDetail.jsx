@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
+import CreateMap from '../../components/KakaoMap/CreateMap';
 import UploadImg from './UploadImg';
 import DragDrop from './DragDrop';
 
@@ -284,6 +285,9 @@ const CreateProductDetail = () => {
                   </div>
                 </div>
                 <div>
+                  <CreateMap />
+                </div>
+                <div>
                   <label
                     htmlFor='productInfo'
                     className='block text-sm font-bold text-gray-700'
@@ -318,7 +322,7 @@ const CreateProductDetail = () => {
               <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
                 <button
                   type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  className='inline-flex justify-center rounded-md border border-transparent bg-[#333333] py-2 px-4 text-sm font-bold text-white shadow-sm hover:bg-main focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                   onClick={onClickCreateProduct}
                 >
                   Save

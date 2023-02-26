@@ -106,9 +106,9 @@ const DragDrop = ({ files, setFiles, onChangeFiles, dragRef, fileId }) => {
     >
       <label
         htmlFor='fileUpload'
-        className='relative cursor-pointer rounded-md bg-white font-medium text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2 hover:text-green-800'
+        className='relative cursor-pointer rounded-md bg-white font-medium text-main focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2 hover:text-green-800'
       >
-        <div className='relative cursor-pointer rounded-md bg-white font-bold text-sm text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2'>
+        <div className='relative cursor-pointer rounded-md bg-white font-bold text-sm text-main focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2'>
           Upload a file
           <div className='justify-center'>
             {files.length > 0 &&

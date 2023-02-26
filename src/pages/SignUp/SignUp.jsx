@@ -241,7 +241,7 @@ const SignUp = () => {
                 </div>
                 <div className='mb-6 text-center'>
                   <button
-                    className='w-full px-4 py-2 font-bold text-white bg-gray-900 rounded-full hover:bg-gray-700 focus:outline-none focus:shadow-outline'
+                    className='w-full px-4 py-2 font-bold text-white bg-second rounded-full hover:bg-main focus:outline-none focus:shadow-outline'
                     type='button'
                     onClick={onClickSignUp}
                   >
@@ -251,7 +251,7 @@ const SignUp = () => {
                 <hr className='mb-6 border-t' />
                 <div className='text-center'>
                   <a
-                    className='inline-block text-sm text-gray-500 align-baseline hover:text-gray-800'
+                    className='inline-block text-sm text-main align-baseline hover:text-second'
                     href='/signin'
                   >
                     Already have an account? Login!

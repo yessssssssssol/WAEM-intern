@@ -85,7 +85,7 @@ const UploadImg = ({ files, setFiles, onChangeFiles, dragRef }) => {
           <label
             htmlFor='file-upload'
             ref={dragRef}
-            className='relative cursor-pointer rounded-md bg-white font-medium text-[#111111] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#111111] focus-within:ring-offset-2 hover:text-green-800'
+            className='relative cursor-pointer rounded-md bg-white font-medium text-main focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2 hover:text-green-800'
           >
             <span>Upload a file</span>
             <input

@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Slider from 'react-slick';
 
-export default function SimpleSlider() {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  return (
-    <Slider {...settings}>
-      <div className='w-full flex'>
-        <h3 className='flex justify-center bg-gray-100 w-full h-80'>1</h3>
+export default class SimpleSlider extends Component {
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
+    return (
+      <div className='w-full h-full'>
+        <Slider {...settings}>
+          <div className='w-[300px] h-[400px]'>
+            <h3 className='w-full h-full bg-yellow-400'>1</h3>
+          </div>
+          <div className='w-[300px] h-[400px]'>
+            <h3 className='w-full h-full bg-blue-400'>2</h3>
+          </div>
+          <div className='w-[300px] h-[400px]'>
+            <h3 className='w-full h-full bg-green-400'>3</h3>
+          </div>
+        </Slider>
       </div>
-      <div>
-        <h3 className='flex justify-center bg-gray-200 w-full h-80'>2</h3>
-      </div>
-      <div>
-        <h3 className='flex justify-center bg-gray-300 w-full h-80'>3</h3>
-      </div>
-      <div>
-        <h3 className='flex justify-center bg-gray-400 w-full h-80'>4</h3>
-      </div>
-      <div>
-        <h3 className='flex justify-center bg-slate-500 w-full h-80'>5</h3>
-      </div>
-    </Slider>
-  );
+    );
+  }
 }

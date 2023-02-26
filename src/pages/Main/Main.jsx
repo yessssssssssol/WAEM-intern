@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../../config';
 import ProductMainCard from '../../components/ProductMainCard/ProductMainCard';
 import ProductImage from '../ProductDetail/ProductImage';
+
 const Main = () => {
   const [productMainCard, setProductMainCard] = useState([]);
   useEffect(() => {
+    // fetch(`${API.MAIN}`)
     fetch('./data/product.json')
       .then((response) => response.json())
       .then((data) => setProductMainCard(data));
