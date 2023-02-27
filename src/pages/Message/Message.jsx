@@ -3,7 +3,7 @@ import aesop from '../../assets/images/aesop.webp';
 const Message = () => {
   return (
     <div class='container mx-auto shadow-lg rounded-lg mt-10'>
-      <div class='w-full h-full flex flex-row justify-between bg-white'>
+      <div class='w-full h-full md:flex flex-row justify-between bg-white'>
         <div class='flex flex-col w-2/5 border-r-2 overflow-y-auto'>
           <div class='flex flex-row py-4 px-2 justify-center items-center border-b-2'>
             <div class='w-1/4'>
@@ -20,7 +20,7 @@ const Message = () => {
           </div>
         </div>
 
-        <div class='w-full px-5 flex flex-col justify-between'>
+        <div class='flex w-full px-5 flex-col justify-between'>
           <div class='flex flex-col mt-5'>
             <div class='flex justify-end mb-4'>
               <div class='mr-2 py-3 px-4 bg-second rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white'>
@@ -51,7 +51,6 @@ const Message = () => {
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Magnam, repudiandae.
                 </div>
-
                 <div class='mt-4 mr-2 py-3 px-4 bg-second rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Debitis, reiciendis!
@@ -82,7 +81,8 @@ const Message = () => {
             />
           </div>
         </div>
-        <div class='w-2/5 border-l-2 px-5'>
+
+        <div class='flex w-2/5 border-l-2 px-5'>
           <div class='flex flex-col'>
             <div class='font-semibold text-l py-4'>제목</div>
             <img src={aesop} class='object-cover rounded-xl h-64' alt='' />

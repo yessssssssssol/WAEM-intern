@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
-import register from '../../assets/images/register.jpeg';
+import book from '../../assets/images/book.jpeg';
+import book2 from '../../assets/images/book2.jpeg';
+
 const SignUp = () => {
   const [city, setCity] = useState('');
   const [centre, setCentre] = useState('');
@@ -107,7 +109,7 @@ const SignUp = () => {
         <div className='flex justify-center px-6 my-12'>
           <div className='w-full xl:w-3/4 lg:w-11/12 flex'>
             <img
-              src={register}
+              src={book2}
               alt='registerIMG'
               className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg shadow-xl '
             />
