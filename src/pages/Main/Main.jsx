@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../config';
 import ProductMainCard from '../../components/ProductMainCard/ProductMainCard';
-import ProductImage from '../ProductDetail/ProductImage';
+import ImageSlide from './ImageSlide';
 
 const Main = () => {
   const [productMainCard, setProductMainCard] = useState([]);
@@ -15,7 +15,7 @@ const Main = () => {
   return (
     <div className='w-full'>
       <div className='mt-1'>
-        <ProductImage />
+        <ImageSlide />
       </div>
       <div className='container mx-auto my-10 flex flex-wrap justify-center content-start'>
         {productMainCard.map((productMainCard) => (
