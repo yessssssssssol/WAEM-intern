@@ -1,12 +1,10 @@
 import React from 'react';
 
-const ProductMiniCardDetail = ({ productItem, product, deleteProduct }) => {
+const ProductMiniCardDetail = ({ product, deleteProduct, editProduct }) => {
   const { title, price, region, city, address, product_image } = product;
+
   return (
-    <div
-      ref={productItem}
-      className='hover:bg-gray-50 flex flex-wrap justify-between'
-    >
+    <div className='hover:bg-gray-50 flex flex-wrap justify-between'>
       <div className='flex gap-3 px-2 py-2 h-full items-center font-normal text-gray-900'>
         <div className='relative h-10 w-10'>
           <img
@@ -52,7 +50,7 @@ const ProductMiniCardDetail = ({ productItem, product, deleteProduct }) => {
               />
             </svg>
           </button>
-          <a x-data="{ tooltip: 'Edite' }" href='#'>
+          <div onClick={editProduct}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
@@ -68,7 +66,7 @@ const ProductMiniCardDetail = ({ productItem, product, deleteProduct }) => {
                 d='M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125'
               />
             </svg>
-          </a>
+          </div>
         </div>
       </div>
     </div>

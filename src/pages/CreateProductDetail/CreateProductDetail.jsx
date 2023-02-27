@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
 import CreateMap from '../../components/KakaoMap/CreateMap';
-import UploadImg from './UploadImg';
 import DragDrop from './DragDrop';
 
 const CreateProductDetail = () => {
