@@ -26,7 +26,7 @@ const ProductMiniCard = () => {
         </thead>
         <tbody className='divide-y divide-gray-100 border-t border-gray-100'>
           <tr className='hover:bg-gray-50'>
-            <th className='flex gap-3 px-6 py-4 font-normal text-gray-900'>
+            <th className='flex gap-3 px-2 py-2 h-full items-center font-normal text-gray-900'>
               <div className='relative h-10 w-10'>
                 <img
                   className='h-full w-full object-cover object-center'
@@ -34,7 +34,7 @@ const ProductMiniCard = () => {
                   alt=''
                 />
               </div>
-              <div className='font-medium w-full text-gray-700'>
+              <div className=' font-medium w-full h-full  text-gray-700'>
                 책 팔고 있습니다~!!!
               </div>
             </th>
@@ -47,7 +47,7 @@ const ProductMiniCard = () => {
             <td className='px-6 py-4'>서울특별시 중랑구 면목동</td>
             <td className='px-6 py-4'>
               <div className='flex gap-2'>
-                <span className='inline-flex items-center gap-1  px-2 py-1 text-xs font-semibold text-second'>
+                <span className='items-center px-2 py-1 text-xs font-semibold text-second'>
                   7000원
                 </span>
               </div>
