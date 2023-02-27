@@ -10,18 +10,16 @@ export default class SimpleSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
+    const { image } = this.props;
+
     return (
       <div className='w-full h-full'>
         <Slider {...settings}>
-          <div className='w-[300px] h-[400px]'>
-            <h3 className='w-full h-full bg-yellow-400'>1</h3>
-          </div>
-          <div className='w-[300px] h-[400px]'>
-            <h3 className='w-full h-full bg-blue-400'>2</h3>
-          </div>
-          <div className='w-[300px] h-[400px]'>
-            <h3 className='w-full h-full bg-green-400'>3</h3>
-          </div>
+          {image.map((item) => (
+            <div className='w-[300px] h-[400px]'>
+              <img className='w-full h-full' src={item} alt='image_slide' />
+            </div>
+          ))}
         </Slider>
       </div>
     );
