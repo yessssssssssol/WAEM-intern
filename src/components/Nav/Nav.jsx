@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import neighborhood from '../../assets/images/neighborhood.png';
-import marketlogo from '../../assets/images/marketlogo.png';
+import market from '../../assets/images/market.png';
 import rabbit from '../../assets/images/rabbit.jpeg';
 const Nav = () => {
   const user = {
@@ -35,11 +34,7 @@ const Nav = () => {
                 <div className='flex h-16 items-center justify-between'>
                   <div className='flex items-center'>
                     <div className='flex-shrink-0'>
-                      <img
-                        className='h-16 w-26 p-2'
-                        src={marketlogo}
-                        alt='Your Company'
-                      />
+                      <img className='w-24' src={market} alt='Your Company' />
                     </div>
                     <div className='hidden md:block'>
                       <div className='ml-10 flex items-baseline space-x-4'>
@@ -50,7 +45,7 @@ const Nav = () => {
                             className={classNames(
                               item.current
                                 ? ' text-main'
-                                : ' text-[#111111] hover:text-main hover:z-50',
+                                : ' text-[#111111] hover:text-main',
                               'px-3 py-2 rounded-md text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}

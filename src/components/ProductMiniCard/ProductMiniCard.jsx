@@ -47,7 +47,7 @@ const ProductMiniCard = () => {
             <td className='px-6 py-4'>서울특별시 중랑구 면목동</td>
             <td className='px-6 py-4'>
               <div className='flex gap-2'>
-                <span className='inline-flex items-center gap-1  px-2 py-1 text-xs font-semibold text-violet-600'>
+                <span className='inline-flex items-center gap-1  px-2 py-1 text-xs font-semibold text-second'>
                   7000원
                 </span>
               </div>

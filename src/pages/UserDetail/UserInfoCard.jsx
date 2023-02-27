@@ -42,7 +42,7 @@ const UserInfoCard = () => {
               </div>
             </div>
             <div className='text-center mt-2'>
-              <h3 className='text-2xl text-slate-700 font-bold leading-normal mb-1'>
+              <h3 className='text-2xl text-main font-bold leading-normal mb-1'>
                 Hailey
               </h3>
               <div className='text-xs mt-0 mb-2 text-slate-400 font-bold uppercase'>
