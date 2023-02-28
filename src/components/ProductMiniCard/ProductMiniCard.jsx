@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useNavigate } from 'react';
+import React, { useState, useEffect } from 'react';
+import { API } from '../../config';
 import ProductMiniCardDetail from './ProductMiniCardDetail';
 
 const ProductMiniCard = () => {
@@ -6,7 +7,8 @@ const ProductMiniCard = () => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://172.20.10.4:3000/product/myPage`)
+    // fetch(`http://172.20.10.4:3000/product/myPage`);
+    fetch(`${API.MYPAGEPRODUCT}`)
       // fetch(`./data/product.json`)
       .then((res) => res.json())
       .then((res) => setProductList(res));

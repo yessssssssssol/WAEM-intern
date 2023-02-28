@@ -17,7 +17,12 @@ export default class SimpleSlider extends Component {
         <Slider {...settings}>
           {image.map((item) => (
             <div className='w-[300px] h-[400px]'>
-              <img className='w-full h-full' src={item} alt='image_slide' />
+              <img
+                className='w-full h-full'
+                key={item.id}
+                src={item}
+                alt='image_slide'
+              />
             </div>
           ))}
         </Slider>

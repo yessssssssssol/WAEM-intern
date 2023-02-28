@@ -47,7 +47,7 @@ const ProductMiniCardDetail = ({ product }) => {
       </div>
       <div
         onClick={goToDetail}
-        className='col-span-2 font-medium text-gray-700 py-4 text-left'
+        className='col-span-2 font-medium text-gray-700 py-4 text-left cursor-pointer'
       >
         {title}
       </div>
@@ -84,7 +84,7 @@ const ProductMiniCardDetail = ({ product }) => {
               />
             </svg>
           </button>
-          <div onClick={editProduct}>
+          <div onClick={editProduct} className='cursor-pointer'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'

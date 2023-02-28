@@ -9,4 +9,5 @@ export const API = {
   CREATE: `${BASE_URL}/product/registration`,
   MAIN: `${BASE_URL}/product?offset=0&limit=30`,
   PRODUCTDETAIL: `${BASE_URL}/product/`,
+  MYPAGEPRODUCT: `${BASE_URL}/product/myPage`,
 };

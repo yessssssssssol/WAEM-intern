@@ -2,17 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProductMainCard = ({ productMainCard }) => {
-  const {
-    thumbnail,
-    title,
-    category,
-    price,
-    region,
-    city,
-    address,
-    product_image,
-    id,
-  } = productMainCard;
+  const { thumbnail, title, category, price, region, city, address, id } =
+    productMainCard;
 
   const navigate = useNavigate();
 
