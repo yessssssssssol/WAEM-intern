@@ -2,7 +2,7 @@ import React from 'react';
 
 const Chatting = () => {
   return (
-    <div className='container'>
+    <div className='container w-full h-full'>
       <div className='flex w-full h-full px-5 flex-col justify-between'>
         <div className='flex flex-col mt-5'>
           <div className='flex justify-end mb-4'>

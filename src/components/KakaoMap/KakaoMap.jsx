@@ -1,7 +1,8 @@
 import React from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-
-const KakaoMap = () => {
+import rabbit from '../../assets/images/rabbit.jpeg';
+const KakaoMap = ({ product }) => {
+  const { product_image } = product;
   return (
     <div className='w-full flex justify-center mt-10'>
       <Map

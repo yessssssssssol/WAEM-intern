@@ -23,7 +23,7 @@ const ProductDetail = () => {
         className='font-sans lg:p-10 md:p-6 p-4 bg-white dark:bg-gray-900 shadow-xl rounded-lg'
       >
         <ProductDetailInfo product={product} />
-        <KakaoMap />
+        <KakaoMap product={product} />
       </div>
     </div>
   );

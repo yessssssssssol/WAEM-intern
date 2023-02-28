@@ -4,8 +4,8 @@ import aesop from '../../assets/images/aesop.webp';
 
 const Message = () => {
   return (
-    <div class='container mx-auto shadow-lg rounded-lg mt-10'>
-      <div class='w-full h-full md:flex flex-row justify-between bg-white'>
+    <div class='container w-full my-24 mx-auto shadow-lg rounded-lg flex items-center'>
+      <div class='md:flex flex-row justify-between bg-white'>
         <div class='flex flex-col w-2/5 border-r-2 overflow-y-auto'>
           <div class='flex flex-row py-4 px-2 justify-center items-center border-b-2'>
             <div class='w-1/4'>
