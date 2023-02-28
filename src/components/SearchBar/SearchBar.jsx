@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ searchBook, searchKeyword }) => {
   return (
-    <div class='w-full mx-auto mt-8 px-12'>
+    <div class='w-full mx-auto mt-8 px-28'>
       <form>
         <label
           for='default-search'
@@ -29,17 +29,21 @@ const SearchBar = () => {
           </div>
           <input
             type='search'
+            value={searchKeyword}
+            onChange={searchBook}
             id='default-search'
             class='block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-second focus:border-main dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main dark:focus:border-second'
             placeholder='제목 검색'
             required
           />
-          <button
+          {/* <button
             type='submit'
+            value={searchKeyword}
+            onClick={searchBook}
             class='text-white absolute right-2.5 bottom-2.5 bg-second hover:bg-main focus:ring-4 focus:outline-none focus:ring-second font-medium rounded-lg text-sm px-4 py-2 dark:bg-main dark:hover:bg-second dark:focus:ring-main'
           >
             Search
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

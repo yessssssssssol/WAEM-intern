@@ -11,12 +11,13 @@ const ProductMainCard = ({ productMainCard }) => {
     city,
     address,
     product_image,
+    id,
   } = productMainCard;
 
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/productdetail/1`);
+    navigate(`/productdetail/${id}`);
   };
 
   return (
@@ -28,7 +29,7 @@ const ProductMainCard = ({ productMainCard }) => {
         <img
           alt='productIMG'
           className='aspect-video w-64 h-64 rounded-t-lg object-cover object-center'
-          src={product_image[0]}
+          src={thumbnail}
         />
         <div className='p-4'>
           <small className='text-[#333333] font-semibold'>{category}</small>

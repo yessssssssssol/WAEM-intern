@@ -12,6 +12,9 @@ const ProductMiniCardDetail = ({ product, editProduct }) => {
 
     fetch('http://172.20.10.4:3000/product', {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         productId: id,
       }),

@@ -9,8 +9,8 @@ const ProductDetail = () => {
   const { productId } = useParams();
 
   useEffect(() => {
-    // fetch(`http://172.20.10.4:3000/product/${productId}`)
-    fetch(`./data/product.json`)
+    fetch(`http://172.20.10.4:3000/product/${productId}`)
+      // fetch(`./data/product.json`)
       .then((res) => res.json())
       .then((res) => setProduct(res[0]));
   }, [productId]);
