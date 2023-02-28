@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../config';
-import book from '../../assets/images/book.jpeg';
-import book2 from '../../assets/images/book2.jpeg';
+import book3 from '../../assets/images/book3.avif';
 
 const SignUp = () => {
   const [city, setCity] = useState('');
@@ -109,7 +108,7 @@ const SignUp = () => {
         <div className='flex justify-center px-6 my-12'>
           <div className='w-full xl:w-3/4 lg:w-11/12 flex'>
             <img
-              src={book2}
+              src={book3}
               alt='registerIMG'
               className='w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg shadow-xl '
             />
@@ -122,7 +121,7 @@ const SignUp = () => {
                       Name
                     </label>
                     <input
-                      className='w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                      className='w-full px-3 py-2 text-sm leading-tight focus:border-[#333333] focus:ring-[#333333] text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='Name'
                       type='text'
                       name='name'
@@ -132,7 +131,7 @@ const SignUp = () => {
                   </div>
                   <div className='md:ml-2'>
                     <label
-                      className='block mb-2 text-sm font-bold text-gray-700'
+                      className='block mb-2 text-sm font-bold focus:border-[#333333] focus:ring-[#333333] text-gray-700'
                       for='nickName'
                     >
                       Nick Name
@@ -156,14 +155,14 @@ const SignUp = () => {
                       Email
                     </label>
                     <button
-                      className='block text-sm text-green-700 hover:text-gray-700 leading-1'
+                      className='block text-sm text-main hover:text-second leading-1'
                       onClick={onClickCheckEmail}
                     >
                       check
                     </button>
                   </div>
                   <input
-                    className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                    className='w-full px-3 py-2 mb-3 text-sm leading-tight focus:border-[#333333] focus:ring-[#333333] text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     id='email'
                     type='email'
                     name='email'
@@ -176,7 +175,7 @@ const SignUp = () => {
                     <label className='block mb-2 text-sm font-bold text-gray-700'>
                       지역
                     </label>
-                    <select className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'>
+                    <select className='w-36 px-3 py-2 text-sm leading-tight focus:border-[#333333] focus:ring-[#333333] text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'>
                       <option value='region'>서울특별시</option>
                     </select>
                   </div>
@@ -187,7 +186,7 @@ const SignUp = () => {
                     <select
                       value={city}
                       onChange={handleCityChange}
-                      className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                      className='w-36 px-3 py-2 text-sm leading-tight focus:border-[#333333] focus:ring-[#333333] text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     >
                       {cityList.map((city) => (
                         <option key={city.id} value={city.id}>
@@ -203,7 +202,7 @@ const SignUp = () => {
                     <select
                       value={centre.id}
                       onChange={handleCentreChange}
-                      className='w-36 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                      className='w-36 px-3 py-2 text-sm leading-tight focus:border-[#333333] focus:ring-[#333333] text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                     >
                       {centreList.map((centre) => (
                         <option key={centre.id} value={centre.id}>
@@ -219,7 +218,7 @@ const SignUp = () => {
                       Password
                     </label>
                     <input
-                      className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                      className='w-full px-3 py-2 mb-3 focus:border-[#333333] focus:ring-[#333333] text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='password'
                       type='password'
                       name='password'
@@ -232,7 +231,7 @@ const SignUp = () => {
                       Confirm Password
                     </label>
                     <input
-                      className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
+                      className='w-full px-3 py-2 mb-3 focus:border-[#333333] focus:ring-[#333333] text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
                       id='c_password'
                       type='password'
                       name='passwordCheck'
@@ -243,7 +242,7 @@ const SignUp = () => {
                 </div>
                 <div className='mb-6 text-center'>
                   <button
-                    className='w-full px-4 py-2 font-bold text-white bg-second rounded-full hover:bg-main focus:outline-none focus:shadow-outline'
+                    className='w-full px-4 py-2 font-bold text-white bg-main rounded hover:bg-second focus:outline-none focus:shadow-outline'
                     type='button'
                     onClick={onClickSignUp}
                   >
