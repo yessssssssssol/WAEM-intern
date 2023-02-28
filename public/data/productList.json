@@ -1,0 +1,152 @@
+[
+  {
+    "id": 6,
+    "title": "곰돌이 푸, 행복한 일은 매일 있어",
+    "price": "13320.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788925563350.jpg",
+    "region": "서울특별시",
+    "city": "광진구",
+    "address": "화양동"
+  },
+  {
+    "id": 7,
+    "title": "공정하다는 착각",
+    "price": "16200.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791164136452.jpg",
+    "region": "서울특별시",
+    "city": "구로구",
+    "address": "신도림동"
+  },
+  {
+    "id": 8,
+    "title": "정의란 무엇인가?",
+    "price": "13500.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788937834790.jpg",
+    "region": "서울특별시",
+    "city": "금천구",
+    "address": "가산동"
+  },
+  {
+    "id": 9,
+    "title": "트렌드 코리아 2023",
+    "price": "17100.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788959897094.jpg",
+    "region": "서울특별시",
+    "city": "노원구",
+    "address": "월계1동"
+  },
+  {
+    "id": 10,
+    "title": "데일 카네기 인간관계론",
+    "price": "10350.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791187142560.jpg",
+    "region": "서울특별시",
+    "city": "도봉구",
+    "address": "쌍문1동"
+  },
+  {
+    "id": 11,
+    "title": "음식 중독",
+    "price": "16200.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788937469268.jpg",
+    "region": "서울특별시",
+    "city": "동대문구",
+    "address": "회기동"
+  },
+  {
+    "id": 12,
+    "title": "쓰러긴 김에 엎드려 하나님을 만났다",
+    "price": "11700.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791165042349.jpg",
+    "region": "서울특별시",
+    "city": "동작구",
+    "address": "노량진2동"
+  },
+  {
+    "id": 13,
+    "title": "해커스 토익 기출보카 TOEIC VOCA",
+    "price": "19300.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788965422785.jpg",
+    "region": "서울특별시",
+    "city": "마포구",
+    "address": "용강동"
+  },
+  {
+    "id": 14,
+    "title": "특별하게 파리",
+    "price": "17100.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791188829323.jpg",
+    "region": "서울특별시",
+    "city": "서대문구",
+    "address": "홍제1동"
+  },
+  {
+    "id": 15,
+    "title": "하버드식 호흡의 기술",
+    "price": "14400.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791158463854.jpg",
+    "region": "서울특별시",
+    "city": "서초구",
+    "address": "방배1동"
+  },
+  {
+    "id": 16,
+    "title": "김밀란 리조또",
+    "price": "18000.00",
+    "status": "판매중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791130697390.jpg",
+    "region": "서울특별시",
+    "city": "성동구",
+    "address": "안암동"
+  },
+  {
+    "id": 2,
+    "title": "하얼빈",
+    "price": "14400.00",
+    "status": "거래중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788954699914.jpg",
+    "region": "서울특별시",
+    "city": "강동구",
+    "address": "길동"
+  },
+  {
+    "id": 4,
+    "title": "기분이 태도가 되지 말자",
+    "price": "14400.00",
+    "status": "거래중",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791197647666.jpg",
+    "region": "서울특별시",
+    "city": "관악구",
+    "address": "염창동"
+  },
+  {
+    "id": 3,
+    "title": "나미야 잡화점의 기적",
+    "price": "13320.00",
+    "status": "판매완료",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788972756194.jpg",
+    "region": "서울특별시",
+    "city": "강북구",
+    "address": "번1동"
+  },
+  {
+    "id": 5,
+    "title": "나는 나로 살기로 했다",
+    "price": "14400.00",
+    "status": "판매완료",
+    "product_image": "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791197377150.jpg",
+    "region": "서울특별시",
+    "city": "강서구",
+    "address": "보라매동"
+  }
+]
