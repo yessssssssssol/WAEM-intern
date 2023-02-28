@@ -1,37 +1,54 @@
 import React from 'react';
 
-const ProductMiniCardDetail = ({ product, deleteProduct, editProduct }) => {
-  const { title, price, region, city, address, product_image } = product;
+const ProductMiniCardDetail = ({ product, editProduct }) => {
+  const { title, price, status, region, city, address, product_image, id } =
+    product;
+
+  const deleteProduct = (e) => {
+    // productItem.current.remove();
+    e.target.parentElement.parentElement.parentElement.parentElement.remove();
+    // e.stoppropagation();
+    // e.preventDefault();
+
+    fetch('http://172.20.10.4:3000/product', {
+      method: 'DELETE',
+      body: JSON.stringify({
+        productId: id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   return (
-    <div className='hover:bg-gray-50 flex flex-wrap justify-between'>
-      <div className='flex gap-3 px-2 py-2 h-full items-center font-normal text-gray-900'>
-        <div className='relative h-10 w-10'>
+    <div className='hover:bg-gray-50 grid grid-cols-8 '>
+      <div className=' gap-3 px-2 py-2 h-full items-center font-normal text-gray-900 '>
+        <div className='relative h-14 w-10'>
           <img
             className='h-full w-full object-cover object-center'
-            src={product_image[0]}
-            alt=''
+            src={product_image}
+            alt='thumbnail_image'
           />
         </div>
-        <div className=' font-medium w-full h-full  text-gray-700'>{title}</div>
       </div>
-      <div className='px-6 py-4'>
+      <div className='col-span-2 font-medium text-gray-700 py-4 text-left'>
+        {title}
+      </div>
+      <div className='py-4'>
         <span className='inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600'>
           <span className='h-1.5 w-1.5 rounded-full bg-green-600'></span>
-          판매중
+          {status}
         </span>
       </div>
-      <div className='px-6 py-4'>
+      <div className='col-span-2 py-4'>
         {region} {city} {address}
       </div>
-      <div className='px-6 py-4'>
-        <div className='flex'>
-          <span className='items-center px-2 py-1 text-xs font-bold text-second'>
-            {parseInt(price).toLocaleString()} 원
-          </span>
-        </div>
+      <div className='py-4'>
+        <span className='items-center py-2 text-xs font-bold text-second text-right'>
+          {parseInt(price).toLocaleString()} 원
+        </span>
       </div>
-      <div className='px-6 py-4'>
+      <div className='py-4'>
         <div className='flex justify-nowrap'>
           <button onClick={deleteProduct}>
             <svg

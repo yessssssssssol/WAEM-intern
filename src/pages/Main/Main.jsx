@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { API } from '../../config';
 import ProductMainCard from '../../components/ProductMainCard/ProductMainCard';
 import ImageSlide from './ImageSlide';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Main = () => {
   const [productMainCard, setProductMainCard] = useState([]);
@@ -16,6 +17,7 @@ const Main = () => {
     <div className='w-full'>
       <div className='mt-1'>
         <ImageSlide />
+        <SearchBar />
       </div>
       <div className='container mx-auto my-10 flex flex-wrap justify-center content-start'>
         {productMainCard.map((productMainCard) => (

@@ -19,6 +19,9 @@ const ProductDetailInfo = ({ product }) => {
   const goToUser = () => {
     navigate('/userdetail');
   };
+  const goToChat = () => {
+    navigate('/message');
+  };
 
   return (
     <div className='mt-3 md:mt-4 lg:mt-0 flex flex-col lg:flex-row items-stretch justify-center lg:space-x-8'>
@@ -60,7 +63,10 @@ const ProductDetailInfo = ({ product }) => {
         </p>
         <p className='text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10'></p>
         <div className='flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 mt-8 md:mt-16'>
-          <button className='w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none  uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-[#333333] text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200'>
+          <button
+            onClick={goToChat}
+            className='w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none  uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-[#333333] text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200'
+          >
             Contact me
           </button>
           <button className='w-full md:w-2/5 border border-gray-800 text-base font-medium leading-none text-gray-800 dark:text-white uppercase py-6 bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 dark:bg-transparent dark:border-white  focus:ring-gray-800 hover:bg-[#333333] hover:text-white dark:hover:bg-gray-800 '>
