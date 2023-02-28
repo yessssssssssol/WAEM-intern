@@ -7,26 +7,18 @@ const Footer = () => {
         <nav className='flex flex-wrap justify-center'>
           <div className='px-5 py-2'>
             <a
-              href='#'
+              href='https://github.com/yessssssssssol/WAEM-intern'
               className='text-base leading-6 text-gray-500 hover:text-gray-900'
             >
-              About
+              FRONTEND
             </a>
           </div>
           <div className='px-5 py-2'>
             <a
-              href='#'
+              href='https://github.com/seuungkei/waem-daangn'
               className='text-base leading-6 text-gray-500 hover:text-gray-900'
             >
-              Contact
-            </a>
-          </div>
-          <div className='px-5 py-2'>
-            <a
-              href='#'
-              className='text-base leading-6 text-gray-500 hover:text-gray-900'
-            >
-              Terms
+              BACKEND
             </a>
           </div>
         </nav>
@@ -86,7 +78,7 @@ const Footer = () => {
           </a>
           <a
             target='blank'
-            href='https://velog.io/@yessssssssssol'
+            href='https://velog.io/@khjtean'
             className='text-main hover:text-gray-500'
           >
             <span className='sr-only'>Velog</span>
