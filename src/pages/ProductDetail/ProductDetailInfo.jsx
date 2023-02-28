@@ -28,7 +28,13 @@ const ProductDetailInfo = ({ product }) => {
     <div className='mt-3 md:mt-4 lg:mt-0 flex flex-col lg:flex-row items-stretch justify-center lg:space-x-8'>
       <div className='lg:w-1/2 flex justify-between items-stretch  px-2 py-20 md:py-6 md:px-6 lg:py-24'>
         <div className='flex items-center w-full h-full]'>
-          {/* <ProductImage image={product_image} /> */}
+          {product_image ? (
+            <ProductImage image={product_image} />
+          ) : (
+            <p className='w-full text-sm text-main flex justify-center'>
+              이미지가 없습니다.
+            </p>
+          )}
         </div>
       </div>
       <div className='lg:w-1/2 flex flex-col justify-center mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0'>
