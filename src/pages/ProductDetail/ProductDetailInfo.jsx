@@ -15,6 +15,7 @@ const ProductDetailInfo = ({ product }) => {
     address,
     product_image,
   } = product;
+
   const navigate = useNavigate();
   const goToUser = () => {
     navigate('/userdetail');

@@ -161,14 +161,16 @@ const CreateProductDetail = () => {
           <form action='#' method='POST'>
             <div className='shadow sm:overflow-hidden sm:rounded-md'>
               <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
-                <h3 className='pt-4 text-2xl text-center'>상품 등록하기</h3>
+                <h1 className='pt-4 text-2xl font-bold text-center text-second'>
+                  책 등록하기
+                </h1>
                 <div className='w-full'>
                   <div className='col-span-1'>
                     <label
                       htmlFor='title'
                       className='block text-sm text-gray-700 font-bold'
                     >
-                      Title
+                      Title of book
                     </label>
                     <div className='mt-1 flex rounded-md shadow-sm'>
                       <input
@@ -176,7 +178,7 @@ const CreateProductDetail = () => {
                         name='productTitle'
                         onChange={handleProductInfo}
                         className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
-                        placeholder='Title'
+                        placeholder='Title of book'
                       />
                     </div>
                   </div>

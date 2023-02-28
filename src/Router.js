@@ -7,7 +7,7 @@ import Nav from './components/Nav/Nav';
 import SignUp from './pages/SignUp/SignUp';
 import UserDetail from './pages/UserDetail/UserDetail';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import EditProductDetail from './pages/EditProductDetail/EditProductDetail';
+import EditProduct from './pages/EditProductDetail/EditProduct';
 import CreateProductDetail from './pages/CreateProductDetail/CreateProductDetail';
 import Message from './pages/Message/Message';
 
@@ -22,7 +22,7 @@ const Router = () => {
         <Route path='/userdetail' element={<UserDetail />} />
         <Route path='/productdetail/:productId' element={<ProductDetail />} />
         {/* <Route path='/productdetail' element={<ProductDetail />} /> */}
-        <Route path='/editProduct' element={<EditProductDetail />} />
+        <Route path='/editProduct/:productId' element={<EditProduct />} />
         <Route path='/createProduct' element={<CreateProductDetail />} />
         <Route path='/message' element={<Message />} />
       </Routes>

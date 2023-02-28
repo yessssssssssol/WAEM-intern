@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ProductMiniCardDetail = ({ product, editProduct }) => {
+const ProductMiniCardDetail = ({ product }) => {
   const { title, price, status, region, city, address, product_image, id } =
     product;
 
+  const navigate = useNavigate();
   const deleteProduct = (e) => {
     // productItem.current.remove();
     e.target.parentElement.parentElement.parentElement.parentElement.remove();
@@ -23,6 +25,15 @@ const ProductMiniCardDetail = ({ product, editProduct }) => {
       .then((data) => console.log(data));
   };
 
+  const editProduct = (e) => {
+    console.log(id);
+    navigate(`/editproduct/${id}`);
+  };
+
+  const goToDetail = () => {
+    navigate(`/productdetail/${id}`);
+  };
+
   return (
     <div className='hover:bg-gray-50 grid grid-cols-8 '>
       <div className=' gap-3 px-2 py-2 h-full items-center font-normal text-gray-900 '>
@@ -34,7 +45,10 @@ const ProductMiniCardDetail = ({ product, editProduct }) => {
           />
         </div>
       </div>
-      <div className='col-span-2 font-medium text-gray-700 py-4 text-left'>
+      <div
+        onClick={goToDetail}
+        className='col-span-2 font-medium text-gray-700 py-4 text-left'
+      >
         {title}
       </div>
       <div className='py-4'>

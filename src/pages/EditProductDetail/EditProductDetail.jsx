@@ -1,102 +1,86 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import rabbit from '../../assets/images/rabbit.jpeg';
+const EditProductDetail = ({ product }) => {
+  const {
+    title,
+    price,
+    content,
+    category,
+    nickname,
+    region,
+    city,
+    address,
+    product_image,
+  } = product;
 
-const EditProductDetail = () => {
+  const navigate = useNavigate();
+  const goToUser = () => {
+    navigate('/userdetail');
+  };
+
+  const editProduct = () => {
+    console.log('수정하기');
+  };
+
   return (
-    <div className='w-full my-24 container mx-auto'>
-      <div className='w-full justify-center px-6 my-12'>
-        <div className='mt-5 md:col-span-2 md:mt-0'>
-          <form action='#' method='POST'>
-            <div className='shadow sm:overflow-hidden sm:rounded-md'>
-              <div className='space-y-6 bg-white px-4 py-5 sm:p-6'>
-                <div className='grid grid-cols-3 gap-6'>
-                  <div className='col-span-3 sm:col-span-2'>
-                    <label
-                      htmlFor='company-website'
-                      className='block text-sm font-medium text-gray-700'
-                    >
-                      Title
-                    </label>
-                    <div className='mt-1 flex rounded-md shadow-sm'>
-                      <input
-                        type='text'
-                        name='title'
-                        className='block w-full flex-1 rounded-md border-gray-300 focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
-                        placeholder='Title'
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor='productInfo'
-                    className='block text-sm font-medium text-gray-700'
-                  >
-                    Product Info
-                  </label>
-                  <div className='mt-1'>
-                    <textarea
-                      id='ProductInfo'
-                      name='ProductInfo'
-                      rows={3}
-                      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#333333] focus:ring-[#333333] sm:text-sm'
-                      placeholder='Product Info'
-                      defaultValue={''}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className='block text-sm font-medium text-gray-700'>
-                    Product photo
-                  </label>
-                  <div className='mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6'>
-                    <div className='space-y-1 text-center'>
-                      <svg
-                        className='mx-auto h-12 w-12 text-gray-400'
-                        stroke='currentColor'
-                        fill='none'
-                        viewBox='0 0 48 48'
-                        aria-hidden='true'
-                      >
-                        <path
-                          d='M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02'
-                          strokeWidth={2}
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        />
-                      </svg>
-                      <div className='flex text-sm text-gray-600'>
-                        <label
-                          htmlFor='file-upload'
-                          className='relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500'
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id='file-upload'
-                            name='file-upload'
-                            type='file'
-                            className='sr-only'
-                          />
-                        </label>
-                        <p className='pl-1'>or drag and drop</p>
-                      </div>
-                      <p className='text-xs text-gray-500'>
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
-                <button
-                  type='submit'
-                  className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </form>
+    <div className='mt-3 md:mt-4 lg:mt-0 flex flex-col lg:flex-row items-stretch justify-center lg:space-x-8'>
+      <div className='lg:w-1/2 flex justify-between items-stretch  px-2 py-20 md:py-6 md:px-6 lg:py-24'>
+        <div className='flex items-center w-full h-full]'>
+          <div className='w-[300px] h-[400px]'>
+            <img
+              className='w-full h-full'
+              src={product_image}
+              alt='product_image'
+            />
+          </div>
+        </div>
+      </div>
+      <div className='lg:w-1/2 flex flex-col justify-center mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0'>
+        <p className='flex justify-end text-sm leading-normal text-gray-900 dark:text-white mt-2'>
+          {region} {city} {address}
+        </p>
+        <div className='flex flex-row justify-end w-full h-8 mt-4 mb-8'>
+          <div className='flex flex-row justify-center items-center shadow hover:bg-gray-400/10 h-[35px] w-[85px] border-solid cursor-pointer'>
+            <p className='flex flex-col justify-center mr-2 text-sm font-semibold'>
+              {nickname}
+            </p>
+            <img
+              src={rabbit}
+              alt='profile'
+              className='shadow-xl rounded-full align-middle border-none lg: w-8 h-8'
+            />
+          </div>
+        </div>
+        <p className='text-base leading-normal text-gray-600 dark:text-white mt-2'>
+          {category}
+        </p>
+        <input
+          placeholder={title}
+          className='text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white cursor-pointer'
+        />
+        <textarea
+          placeholder={content}
+          className='text-base leading-normal text-gray-600 dark:text-white mt-2'
+        ></textarea>
+        <input
+          placeholder={parseInt(price).toLocaleString()}
+          className='text-base leading-normal text-gray-600 dark:text-white mt-2 cursor-pointer'
+        />
+        <p className='text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10'></p>
+        <div className='flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 mt-8 md:mt-16'>
+          <button
+            onClick={editProduct}
+            className='w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none  uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-[#333333] text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200'
+          >
+            Edit
+          </button>
+          <button
+            onClick={goToUser}
+            className='w-full md:w-2/5 border border-gray-800 text-base font-medium leading-none text-gray-800 dark:text-white uppercase py-6 bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 dark:bg-transparent dark:border-white  focus:ring-gray-800 hover:bg-[#333333] hover:text-white dark:hover:bg-gray-800 '
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>

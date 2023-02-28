@@ -55,7 +55,7 @@ const UserInfoCard = () => {
                 <div className='w-full px-4'>
                   <ProductMiniCard />
                   <a
-                    href='/'
+                    href='/message'
                     className='font-semibold text-[#333333]  hover:text-slate-400 hover:font-bold'
                   >
                     채팅하기

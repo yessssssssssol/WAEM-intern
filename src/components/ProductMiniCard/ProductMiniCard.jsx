@@ -12,18 +12,10 @@ const ProductMiniCard = () => {
       .then((res) => setProductList(res));
   }, []);
 
-  const editProduct = (e) => {
-    console.log('hi');
-  };
-
   return (
     <div className='overflow-hidden rounded-lg border border-gray-200 shadow-md m-5'>
       {productList.map((product) => (
-        <ProductMiniCardDetail
-          key={product.id}
-          product={product}
-          editProduct={editProduct}
-        />
+        <ProductMiniCardDetail key={product.id} product={product} />
       ))}
     </div>
   );
