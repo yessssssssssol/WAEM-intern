@@ -6,6 +6,7 @@
 
 ## 2️⃣ 프론트 사용 기술
 
+- Jira
 - React.js, TailwindCSS
 - react-kakao-maps-sdk, react-slick
 
