@@ -7,9 +7,8 @@ const ProductMiniCard = () => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    // fetch(`http://172.20.10.4:3000/product/myPage`);
-    fetch(`${API.MYPAGEPRODUCT}`)
-      // fetch(`./data/product.json`)
+    // fetch(`${API.MYPAGEPRODUCT}`);
+    fetch(`./data/productList.json`)
       .then((res) => res.json())
       .then((res) => setProductList(res));
   }, []);

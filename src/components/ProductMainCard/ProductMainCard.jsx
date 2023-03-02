@@ -2,13 +2,22 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProductMainCard = ({ productMainCard }) => {
-  const { thumbnail, title, category, price, region, city, address, id } =
-    productMainCard;
+  const {
+    thumbnail,
+    title,
+    category,
+    price,
+    region,
+    city,
+    address,
+    id,
+    product_image,
+  } = productMainCard;
 
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/productdetail/${id}`);
+    navigate(`/productdetail`);
   };
 
   return (
@@ -20,7 +29,7 @@ const ProductMainCard = ({ productMainCard }) => {
         <img
           alt='productIMG'
           className='aspect-video w-64 h-64 rounded-t-lg object-cover object-center'
-          src={thumbnail}
+          src={product_image}
         />
         <div className='p-4'>
           <small className='text-[#333333] font-semibold'>{category}</small>
