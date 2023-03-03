@@ -10,4 +10,5 @@ export const API = {
   MAIN: `${BASE_URL}/product?offset=0&limit=30`,
   PRODUCTDETAIL: `${BASE_URL}/product/`,
   MYPAGEPRODUCT: `${BASE_URL}/product/myPage`,
+  LIVECERT: `${BASE_URL}/user/liveCert`,
 };

@@ -10,8 +10,8 @@ const ProductDetail = () => {
 
   useEffect(() => {
     // fetch(`http://172.20.10.4:3000/product/${productId}`);
-    // fetch(`${API.PRODUCTDETAIL}/${productId}`)
-    fetch(`./data/product.json`)
+    fetch(`${API.PRODUCTDETAIL}/${productId}`)
+      // fetch(`./data/product.json`)
       .then((res) => res.json())
       .then((res) => setProduct(res[0]));
   }, [productId]);

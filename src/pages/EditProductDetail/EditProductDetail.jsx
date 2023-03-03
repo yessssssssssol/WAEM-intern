@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../config';
 import rabbit from '../../assets/images/rabbit.jpeg';
 const EditProductDetail = ({ product }) => {
   const {
@@ -14,13 +15,51 @@ const EditProductDetail = ({ product }) => {
     product_image,
   } = product;
 
+  const [createProduct, setCreateProduct] = useState({
+    productTitle: '',
+    productPrice: '',
+    productInfo: '',
+  });
+  const { productTitle, productPrice, productInfo } = createProduct;
+
+  const handleProductInfo = (e) => {
+    const { name, value } = e.target;
+    setCreateProduct((prev) => ({ ...prev, [name]: value }));
+    console.log(productInfo);
+  };
+
   const navigate = useNavigate();
   const goToUser = () => {
     navigate('/userdetail');
   };
 
-  const editProduct = () => {
-    console.log('수정하기');
+  const editProduct = (e) => {
+    e.preventDefault();
+    e.persist();
+
+    let formData = new FormData();
+    formData.append('title', JSON.stringify(productTitle));
+    formData.append('price', JSON.stringify(parseInt(productPrice)));
+    formData.append('content', JSON.stringify(productInfo));
+    formData.append('categoryId', JSON.stringify(parseInt(category)));
+
+    fetch(`${API.CREATE}`, {
+      method: 'fetch',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiJ9.OQ.8YXeAtXK3ux3nVjRj9eYS7U_U1h2ygG7TWxyMrHesmc',
+      },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.message !== 'PRODUCT_REGISTER_SUCCESS') {
+          return alert('다시 입력해주세요');
+        } else {
+          alert('상품 등록에 성공하셨습니다.');
+          navigate('/');
+        }
+      });
   };
 
   return (
@@ -30,7 +69,7 @@ const EditProductDetail = ({ product }) => {
           <div className='w-[300px] h-[400px]'>
             <img
               className='w-full h-full'
-              src={product_image}
+              src={product_image[0]}
               alt='product_image'
             />
           </div>
@@ -57,14 +96,20 @@ const EditProductDetail = ({ product }) => {
         </p>
         <input
           placeholder={title}
+          name='productTitle'
+          onChange={handleProductInfo}
           className='text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white cursor-pointer'
         />
         <textarea
           placeholder={content}
+          name='productInfo'
+          onChange={handleProductInfo}
           className='text-base leading-normal text-gray-600 dark:text-white mt-2'
         ></textarea>
         <input
           placeholder={parseInt(price).toLocaleString()}
+          name='productPrice'
+          onChange={handleProductInfo}
           className='text-base leading-normal text-gray-600 dark:text-white mt-2 cursor-pointer'
         />
         <p className='text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10'></p>
