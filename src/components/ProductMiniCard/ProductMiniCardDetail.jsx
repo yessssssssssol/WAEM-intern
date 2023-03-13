@@ -1,4 +1,5 @@
 import React from 'react';
+import { API } from '../../config';
 import { useNavigate } from 'react-router-dom';
 
 const ProductMiniCardDetail = ({ product }) => {
@@ -12,7 +13,7 @@ const ProductMiniCardDetail = ({ product }) => {
     // e.stoppropagation();
     // e.preventDefault();
 
-    fetch('http://172.20.10.4:3000/product', {
+    fetch(`${API.PRODUCTDETAIL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

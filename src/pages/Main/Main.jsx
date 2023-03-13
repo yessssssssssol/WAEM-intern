@@ -10,8 +10,8 @@ const Main = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
 
   useEffect(() => {
-    fetch(`${API.MAIN}`)
-      // fetch('./data/productList.json')
+    // fetch(`${API.MAIN}`)
+    fetch('./data/productList.json')
       .then((response) => response.json())
       .then((data) => setSearchProduct(data));
   }, []);

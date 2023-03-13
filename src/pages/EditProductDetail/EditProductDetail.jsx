@@ -13,6 +13,7 @@ const EditProductDetail = ({ product }) => {
     city,
     address,
     product_image,
+    id,
   } = product;
 
   const [createProduct, setCreateProduct] = useState({
@@ -44,10 +45,9 @@ const EditProductDetail = ({ product }) => {
     formData.append('categoryId', JSON.stringify(parseInt(category)));
 
     fetch(`${API.CREATE}`, {
-      method: 'fetch',
+      method: 'patch',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiJ9.OQ.8YXeAtXK3ux3nVjRj9eYS7U_U1h2ygG7TWxyMrHesmc',
+        authorization: localStorage.getItem('Token'),
       },
       body: formData,
     })

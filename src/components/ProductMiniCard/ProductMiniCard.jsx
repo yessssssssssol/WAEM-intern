@@ -7,9 +7,8 @@ const ProductMiniCard = () => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    // fetch(`./data/productList.json`)
-
-    fetch(`${API.MYPAGEPRODUCT}`)
+    fetch(`./data/productList.json`)
+      // fetch(`${API.MYPAGEPRODUCT}`)
       .then((res) => res.json())
       .then((res) => setProductList(res));
   }, []);

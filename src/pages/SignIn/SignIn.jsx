@@ -63,7 +63,7 @@ const SignIn = () => {
           return alert('비밀번호를 확인해주세요.');
         } else {
           alert('liveCERT연동에 성공했습니다.');
-          navigate('/');
+          // navigate('/');
         }
       });
   };

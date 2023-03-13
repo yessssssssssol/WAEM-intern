@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { API } from '../../config';
+import { API } from '../../config';
 import { useParams } from 'react-router-dom';
 import EditProductDetail from './EditProductDetail';
 const ProductDetail = () => {
@@ -7,8 +7,7 @@ const ProductDetail = () => {
   const { productId } = useParams();
 
   useEffect(() => {
-    fetch(`http://172.20.10.4:3000/product/${productId}`)
-      // fetch(`./data/product.json`)
+    fetch(`${API.PRODUCTDETAIL}/${productId}`)
       .then((res) => res.json())
       .then((res) => setProduct(res[0]));
   }, [productId]);
