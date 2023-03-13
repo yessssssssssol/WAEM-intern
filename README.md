@@ -1,6 +1,6 @@
 # 📌 WAEM project
 
-[사이트 들어가 보기🔗](http://bookmarketwaem.s3-website-us-east-1.amazonaws.com/)
+[사이트 방문하기🔗](http://bookmarketwaem.s3-website-us-east-1.amazonaws.com/)
 
 ## 1️⃣ 프로젝트 기간
 
