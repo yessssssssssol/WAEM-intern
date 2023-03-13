@@ -1,5 +1,7 @@
 # 📌 WAEM project
 
+[사이트 들어가 보기🔗](http://bookmarketwaem.s3-website-us-east-1.amazonaws.com/)
+
 ## 1️⃣ 프로젝트 기간
 
 - 2023/ 2 / 13 ~ 3 / 3
@@ -7,7 +9,7 @@
 ## 2️⃣ 프론트 사용 기술
 
 - Jira
-- React.js, TailwindCSS
+- React.js, TailwindCSS(모든 화면 반응형으로 구현)
 - react-kakao-maps-sdk, react-slick
 
 ## 3️⃣ 팀원
@@ -39,7 +41,7 @@
 
 - [x] useParams를 활용해 각 상품 id로 상세페이지 보여주기
 - [x] 웹/테블릿/모바일 반응형 구현
-- [ ] kakao Map으로 거래 장소 보여주기 -ing
+- [x] kakao Map으로 거래 장소 보여주기
 
 #### 4. 유저 페이지
 
@@ -58,7 +60,7 @@
 
 - [x] 로그인 유효성 확인 후 알람창
 - [x] 웹/테블릿/모바일 반응형 구현
-- [ ] WAEM LiveCERT 연결
+- [x] WAEM LiveCERT 연결
 
 #### 7. 채팅창
 
